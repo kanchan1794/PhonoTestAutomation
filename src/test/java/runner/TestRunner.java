@@ -20,6 +20,7 @@ import org.junit.runner.RunWith;
        //  tags ="@Login or @TransactionMenu or   @TransactionPageBreadCrumbs or   @TransactionListTableScrollDown"
 
 
+
 //tags="@Login or   @PaymentLinkMenu or   @PaymentLinkListSubmenu or @PaymentLinkListScrollTOP-Bottom or @PaymentLinkCreateSubMenu or @InvoicesMenu or   @InvoicePageBreadCrumbs or   @BankTransferApprovalMenu or @BankTransferApprovalListTableScrollDown"
 
 //tags ="@Login or @PartnersMenu or   @PartnersListSubMenu or   @PartnersShowCredentials or   @PartnersViewDetails or   @PartnersageBreadCrumbs or @PartnersListTableScrollDown"
