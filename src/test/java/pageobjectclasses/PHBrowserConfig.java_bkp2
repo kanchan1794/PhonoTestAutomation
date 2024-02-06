@@ -1,0 +1,41 @@
+package pageobjectclasses;
+
+import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+
+import java.net.MalformedURLException;
+import java.net.URL;
+//import java.net.malformedurlexception
+
+public class PHBrowserConfig {
+	
+		
+      public static ThreadLocal<WebDriver> driverThread = ThreadLocal.withInitial(() -> {
+        WebDriver driver = null;
+	      ChromeOptions options = new ChromeOptions();
+	      options.addArguments("--disable-gpu"); // applicable to windows os only
+        options.addArguments("headless");
+        options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
+        options.addArguments("--no-sandbox"); // Bypass OS security mode
+	System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
+        driver = new ChromeDriver(options);
+        //driver.manage().window().maximize();
+        return driver;
+    });
+}
+
+
+/*public static ThreadLocal<WebDriver> driverThread=new InheritableThreadLocal<WebDriver>();
+//public WebDriver driver=new ChromeDriver();
+//public static void SetDriver() {
+static{
+	WebDriver driver=new ChromeDriver();
+	driverThread.set(driver);
+	driver.manage().window().maximize();*/
+
+	 
