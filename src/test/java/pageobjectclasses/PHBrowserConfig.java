@@ -7,7 +7,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 public class PHBrowserConfig {
 
     public static ThreadLocal<WebDriver> driverThread = ThreadLocal.withInitial(() -> {
-        WebDriver driver = null;
+        WebDriver driver = new ChromeDriver();
         try {
             ChromeOptions options = new ChromeOptions();
 
