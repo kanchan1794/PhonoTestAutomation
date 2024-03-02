@@ -14,9 +14,9 @@ Feature: Test Phonologix PaymentLink Menu Functionality
   @PaymentLinkListScrollTOP-Bottom
   Scenario: Phonologix PaymentLink Submenu List Scroll Functionality
     And Admin Can Check the Working Of Scorll Bar Functionality
-    @PaymentLinkCreateSubMenu
-    Scenario: :PhonoLogix PaymentLink Create SubMenu
-      When Admin clicks on PaymentLink-Create submenu
-      Then Admin Can Create New Payment Link
+  @PaymentLinkCreateSubMenu
+  Scenario: :PhonoLogix PaymentLink Create SubMenu
+    When Admin clicks on PaymentLink-Create submenu
+    Then Admin Can Create New Payment Link
 
 

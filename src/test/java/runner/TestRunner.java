@@ -8,8 +8,12 @@ import org.junit.runner.RunWith;
 		features = {"src/test/java/featurefiles"},
         glue = {"stepdefinitions"},
 		plugin = {"json:target/cucumber.json"},
+
+		///---------------------TILL THE TIME EXECUTION-------------------///
+		tags = "@Login or @TherapistMenu or @TherapistListSubMenu or @TherapistShowCredentials or  @TherapistViewDetails or @PageBreadCrumbs or @TherapistListTableScrollDown or @PartnersMenu or   @PartnersListSubMenu or   @PartnersShowCredentials or   @PartnersViewDetails or   @PartnersageBreadCrumbs or @PartnersListTableScrollDown or @ClientMenu or   @LeadMenu or @PlanMenu or  @PlanListSubMenu or @PlanViewDetails or  @TransactionMenu or  @TransactionPageBreadCrumbs or   @TransactionListTableScrollDown or @PaymentLinkMenu or @PaymentLinkListSubmenu or @PaymentLinkListScrollTOP-Bottom or   @PaymentLinkCreateSubMenu or @InvoicesMenu or  @InvoicePageBreadCrumbs or @BankTransferApprovalMenu or @BankTransferApprovalListTableScrollDown or @MasterVideoMenu or @AddMasterVideos"
+
+
 		//tags = "@Login or @MasterVideoMenu or @AddMasterVideos",
-		tags = "@Login or @@MediaManagerMenu or @MediaManagerSearch or @AddMediaFile"
 		//tags = "@Login or @PlanMenu or   @PlanListSubMenu or PlanViewDetails"
 		//tags ="  @Login or @TherapistMenu or @TherapistListSubMenu or @TherapistShowCredentials or  @TherapistViewDetails or @PageBreadCrumbs or @TherapistListTableScrollDown or @PartnersMenu or   @PartnersListSubMenu or   @PartnersShowCredentials or   @PartnersViewDetails or   @PartnersageBreadCrumbs or @PartnersListTableScrollDown or @ClientMenu or   @LeadMenu or   @TransactionMenu or   @TransactionPageBreadCrumbs or   @TransactionListTableScrollDown "
 

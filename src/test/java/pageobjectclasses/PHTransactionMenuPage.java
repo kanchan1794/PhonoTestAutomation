@@ -1,10 +1,8 @@
 package pageobjectclasses;
 
 import junit.framework.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -21,12 +19,35 @@ public class PHTransactionMenuPage extends PHBrowserConfig{
 
 
 
-    public void ViewTransactionMenu() {
+    public void ViewTransactionMenu() throws InterruptedException {
 
-        WebElement TransactionMenu_Link = driver.findElement(By.xpath("//a[@href='/transactions']"));
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", TransactionMenu_Link);
+        Thread.sleep(2000);
+
+//        WebElement MediaManagerScroll = driver.findElement(By.xpath("//body/div[@id='root']/div[2]/div[1]/ul[1]/div[2]"));
+//        MediaManagerScroll.click();
+
+        // Locate the menu bar element (replace 'your_menu_locator' with the actual locator of your menu bar)
+        WebElement MediaManagerScroll = driver.findElement(By.xpath("//body/div[@id='root']/div[2]/div[1]/ul[1]/div[2]/div[1]"));
+
+        // Create Actions object
+        Actions actions = new Actions(driver);
+
+        // Perform a sequence of DOWN arrow key presses to scroll down (adjust the number of times based on your needs)
+        for (int i = 0; i < 2; i++) {
+            actions.sendKeys(MediaManagerScroll, Keys.ARROW_DOWN).perform();
+            try {
+                Thread.sleep(1000);  // Add a delay to give the page time to react, adjust as needed
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@href='/transactions']")));
+        WebElement TransactionMenu_Link = driver.findElement(By.xpath("//a[@href='/transactions']"));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", TransactionMenu_Link);
+
 
         ((JavascriptExecutor) driver).executeScript("arguments[0].click();", TransactionMenu_Link);
 

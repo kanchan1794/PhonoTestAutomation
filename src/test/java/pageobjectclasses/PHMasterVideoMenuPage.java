@@ -31,7 +31,7 @@ public class PHMasterVideoMenuPage extends PHBrowserConfig {
         Actions actions = new Actions(driver);
 
         // Perform a sequence of DOWN arrow key presses to scroll down (adjust the number of times based on your needs)
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 2; i++) {
             actions.sendKeys(MediaManagerScroll, Keys.ARROW_DOWN).perform();
             try {
                 Thread.sleep(1000);  // Add a delay to give the page time to react, adjust as needed

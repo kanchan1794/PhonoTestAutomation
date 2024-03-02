@@ -12,7 +12,7 @@ public class PHTransactionMenu extends PHBrowserConfig {
     PHTransactionMenuPage ObjPHTRMBPage = new PHTransactionMenuPage(driverThread.get());
 
     @When("Admin clicks on Transaction menu")
-    public void adminClicksOnTransactionMenu() {
+    public void adminClicksOnTransactionMenu() throws InterruptedException {
         ObjPHTRMBPage.ViewTransactionMenu();
         System.out.println("ADMIN CAN CLICK ON TRANSACTION MENU");
     }
