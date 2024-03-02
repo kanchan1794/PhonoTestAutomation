@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -15,7 +16,8 @@ public class PHDashboardPage extends PHBrowserConfig{
 	private WebDriver driver=null;
 	public PHDashboardPage(WebDriver driver) {
 		//public PHLogInPage(WebDriver driver) {
-		this.driver=driver;
+		//this.driver=driver;
+		this.driver = new ChromeDriver();
 		//PageFactory.initElements(driver, this);
 	}
 
