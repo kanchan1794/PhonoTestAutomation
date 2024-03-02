@@ -9,8 +9,8 @@ public class PHBrowserConfig {
     //----------------Remote Code--------------\\
 
     public static ThreadLocal<WebDriver> driverThread = ThreadLocal.withInitial(() -> {
-       WebDriver driver = new ChromeDriver();
-        // WebDriver driver = null;
+       //WebDriver driver = new ChromeDriver();
+         WebDriver driver = null;
         try {
             ChromeOptions options = new ChromeOptions();
 
