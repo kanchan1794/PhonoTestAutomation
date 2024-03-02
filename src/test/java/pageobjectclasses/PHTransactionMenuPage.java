@@ -27,14 +27,14 @@ public class PHTransactionMenuPage extends PHBrowserConfig{
 //        MediaManagerScroll.click();
 
         // Locate the menu bar element (replace 'your_menu_locator' with the actual locator of your menu bar)
-        WebElement MediaManagerScroll = driver.findElement(By.xpath("//body/div[@id='root']/div[2]/div[1]/ul[1]/div[2]/div[1]"));
+        WebElement TransactionScroll = driver.findElement(By.xpath("//body/div[@id='root']/div[2]/div[1]/ul[1]/div[2]/div[1]"));
 
         // Create Actions object
         Actions actions = new Actions(driver);
 
         // Perform a sequence of DOWN arrow key presses to scroll down (adjust the number of times based on your needs)
         for (int i = 0; i < 2; i++) {
-            actions.sendKeys(MediaManagerScroll, Keys.ARROW_DOWN).perform();
+            actions.sendKeys(TransactionScroll, Keys.ARROW_DOWN).perform();
             try {
                 Thread.sleep(1000);  // Add a delay to give the page time to react, adjust as needed
             } catch (InterruptedException e) {
@@ -99,6 +99,7 @@ public class PHTransactionMenuPage extends PHBrowserConfig{
         Thread.sleep(2000);
        ((JavascriptExecutor) driver).executeScript("window.scrollTo(document.body.scrollHeight, 0)");
         WebElement GoBackTrPage = driver.findElement(By.linkText("1"));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", GoBackTrPage);
         GoBackTrPage.click();
        // JavascriptExecutor js = (JavascriptExecutor)driver;
         //js.executeScript("arguments[0].scrollIntoView();", driver.findElement(By.xpath("//h3[contains(text(),'Transactions')])")));

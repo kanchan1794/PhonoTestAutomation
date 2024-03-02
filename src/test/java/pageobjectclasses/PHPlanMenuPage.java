@@ -37,13 +37,13 @@ public class PHPlanMenuPage extends PHBrowserConfig {
     }
 
     public void ClickToViewPlanDetails() throws InterruptedException {
-
-        Thread.sleep(2000);
+       // Thread.sleep(2000);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//tbody/tr[1]/td[10]/div[1]/div[2]")));
         WebElement PlanDetails = driver.findElement(By.xpath("//tbody/tr[1]/td[10]/div[1]/div[2]"));
         //PageBreadCrumbs_Link.sendKeys("Delayed Speech");
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", PlanDetails);
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//tbody/tr[1]/td[10]/div[1]/div[2]")));
+
         ((JavascriptExecutor) driver).executeScript("arguments[0].click();", PlanDetails);
     }
 

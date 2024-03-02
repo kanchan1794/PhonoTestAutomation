@@ -53,12 +53,12 @@ public class PHPaymentLinkMenuPage {
     }
 
     public void PaymentLinkScrollBarFunction() throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(4000);
         //WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         //wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(text(),'Developed by Cling Multi Solutions Pvt Ltd')]")));
         ((JavascriptExecutor) driver).executeScript("window.scrollTo(0,document.body.scrollHeight)");
         ((JavascriptExecutor) driver).executeScript("document.querySelector(\"#root > div.c-app.c-default-layout > div.c-wrapper > div > main > div > div > div > div > div.sc-aXZVg.dKvPpX > div > div.table-responsive\").scrollLeft=500");
-        Thread.sleep(2000);
+        Thread.sleep(4000);
         ((JavascriptExecutor) driver).executeScript("window.scrollTo(document.body.scrollHeight, 0)");
 
         //WebElement PaymentLink_ScrollFun = driver.findElement(By.xpath("//a[contains(text(),'Developed by Cling Multi Solutions Pvt Ltd')]"));

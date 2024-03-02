@@ -24,7 +24,7 @@ public class PHInvoices extends PHBrowserConfig {
     }
 
     @When("Admin Clicks On View Invoice Link")
-    public void adminClicksOnViewInvoiceLink() {
+    public void adminClicksOnViewInvoiceLink() throws InterruptedException {
         ObjPHInMPage.ClickOnViewInvoice();
         System.out.println("ADMIN CAN CLICK ON VIEW INVOICE LINK TO VIEW THE INVOCIES");
 

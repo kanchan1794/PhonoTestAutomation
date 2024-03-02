@@ -92,7 +92,7 @@ public class PHPartnersMenu extends PHBrowserConfig {
     }
 
     @When("Admin clicks on perticular Partners page breadcrumbs")
-    public void adminClicksOnPerticularPartnersPageBreadcrumbs() {
+    public void adminClicksOnPerticularPartnersPageBreadcrumbs() throws InterruptedException {
         ObjPHPMBPage.ClickOnPartnersPageBreadCrumbs();
         System.out.println("------ADMIN CAN CLICK ON PARTNERS PERTICULAR PAGE BREADCRUMBS");
         

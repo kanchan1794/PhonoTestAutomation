@@ -45,12 +45,13 @@ public class PHPartnersMenuPage extends PHBrowserConfig {
     }
 
 
-    public void ClickOnPartnersPageBreadCrumbs() {
-        //Thread.sleep(2000);
+    public void ClickOnPartnersPageBreadCrumbs() throws InterruptedException {
+        Thread.sleep(2000);
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(40));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(text(),'4')]")));
         WebElement PartnerPageBreadCrumbs_Link = driver.findElement(By.xpath("//a[contains(text(),'4')]"));
         //PageBreadCrumbs_Link.sendKeys("Delayed Speech");
+        Thread.sleep(2000);
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", PartnerPageBreadCrumbs_Link);
         ((JavascriptExecutor) driver).executeScript("arguments[0].click();", PartnerPageBreadCrumbs_Link);
 
@@ -170,7 +171,7 @@ driver.findElement(By.xpath("//span[contains(text(),'×')]")).click();
        Thread.sleep(3000);
        WebElement SubmitButton = driver.findElement(By.xpath("//button[contains(text(),'Submit')]"));
         Thread.sleep(3000);
-
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", SubmitButton);
         SubmitButton.click();
         //((JavascriptExecutor) driver).executeScript("arguments[0].click();", SubmitButton);
        System.out.println("Saved");
@@ -179,6 +180,7 @@ driver.findElement(By.xpath("//span[contains(text(),'×')]")).click();
     }
 
     public void VerifyPartnersListScrollVertical() throws InterruptedException {
+        Thread.sleep(4000);
         WebElement ScrollMiddlePartner = driver.findElement(By.xpath("//div[contains(text(),'Partner 1')]"));
         JavascriptExecutor j = (JavascriptExecutor)driver;
         j.executeScript ("arguments[0].scrollIntoView({block: 'center', inline: 'nearest'})", ScrollMiddlePartner);
