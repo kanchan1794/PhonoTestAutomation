@@ -10,7 +10,7 @@ import java.time.Duration;
 public class PHPlanMenuPage extends PHBrowserConfig {
 
 
-    private WebDriver driver = null;
+    private WebDriver driver;
 
     public PHPlanMenuPage(WebDriver driver) {
         //super(driver);
