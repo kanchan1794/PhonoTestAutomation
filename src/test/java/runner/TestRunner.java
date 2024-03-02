@@ -8,9 +8,9 @@ import org.junit.runner.RunWith;
 		features = {"src/test/java/featurefiles"},
         glue = {"stepdefinitions"},
 		plugin = {"json:target/cucumber.json"},
-		tags = "@Login or @TutorialsMenu or @AddTutorials"
+		//tags = "@Login or @MasterVideoMenu or @AddMasterVideos"
 		//tags = "@Login or @MediaManagerMenu or @MediaManagerSearch or @AddMediaFile"
-		//tags = "@Login or @PlanMenu or   @PlanListSubMenu or PlanViewDetails"
+		tags = "@Login or @PlanMenu or   @PlanListSubMenu or PlanViewDetails"
 		//tags ="  @Login or @TherapistMenu or @TherapistListSubMenu or @TherapistShowCredentials or  @TherapistViewDetails or @PageBreadCrumbs or @TherapistListTableScrollDown or @PartnersMenu or   @PartnersListSubMenu or   @PartnersShowCredentials or   @PartnersViewDetails or   @PartnersageBreadCrumbs or @PartnersListTableScrollDown or @ClientMenu or   @LeadMenu or   @TransactionMenu or   @TransactionPageBreadCrumbs or   @TransactionListTableScrollDown "
 
 		//tags = "@Login or @InvoicesMenu or   @InvoicePageBreadCrumbs"
