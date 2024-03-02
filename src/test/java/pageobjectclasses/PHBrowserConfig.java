@@ -10,7 +10,8 @@ public class PHBrowserConfig {
 
     public static ThreadLocal<WebDriver> driverThread = ThreadLocal.withInitial(() -> {
        //WebDriver driver = new ChromeDriver();
-         WebDriver driver = null;
+        //System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
+        WebDriver driver = null;
         try {
             ChromeOptions options = new ChromeOptions();
 
@@ -22,7 +23,7 @@ public class PHBrowserConfig {
 
 
             //System.setProperty("webdriver.chrome.driver", "F:\\Eclipse-WorkSpace\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
-            System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
+            System.setProperty("webdriver.chrome.driver", "/ec2-user/chromedriver");
 
             driver = new ChromeDriver(options);
             driver.manage().window().maximize(); // Maximize the browser window

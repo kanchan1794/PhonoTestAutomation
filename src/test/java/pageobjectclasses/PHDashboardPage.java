@@ -16,8 +16,8 @@ public class PHDashboardPage extends PHBrowserConfig{
 	private WebDriver driver=null;
 	public PHDashboardPage(WebDriver driver) {
 		//public PHLogInPage(WebDriver driver) {
-		//this.driver=driver;
-		this.driver = new ChromeDriver();
+		this.driver=driver;
+		//this.driver = new ChromeDriver();
 		//PageFactory.initElements(driver, this);
 	}
 
