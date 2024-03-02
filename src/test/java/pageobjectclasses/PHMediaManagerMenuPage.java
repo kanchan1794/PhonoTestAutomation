@@ -28,13 +28,31 @@ public class PHMediaManagerMenuPage extends PHBrowserConfig{
 
     public void ClickMediaManagerMenu() throws InterruptedException {
         Thread.sleep(2000);
+//
+//        WebElement MediaManagerScroll = driver.findElement(By.xpath("//body/div[@id='root']/div[2]/div[1]/ul[1]/div[2]"));
+//        MediaManagerScroll.click();
 
         WebElement MediaManagerScroll = driver.findElement(By.xpath("//body/div[@id='root']/div[2]/div[1]/ul[1]/div[2]"));
-        MediaManagerScroll.click();
-        WebElement MediaManagerMenu_Link = driver.findElement(By.xpath("//a[@href='/media-manager/list']"));
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", MediaManagerMenu_Link);
+
+        // Create Actions object
+        Actions actions = new Actions(driver);
+
+        // Perform a sequence of DOWN arrow key presses to scroll down (adjust the number of times based on your needs)
+        for (int i = 0; i < 5; i++) {
+            actions.sendKeys(MediaManagerScroll, Keys.ARROW_DOWN).perform();
+            try {
+                Thread.sleep(1000);  // Add a delay to give the page time to react, adjust as needed
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@href='/media-manager/list']")));
+        WebElement MediaManagerMenu_Link = driver.findElement(By.xpath("//a[@href='/media-manager/list']"));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", MediaManagerMenu_Link);
+
 
         ((JavascriptExecutor) driver).executeScript("arguments[0].click();", MediaManagerMenu_Link);
 Thread.sleep(3000);

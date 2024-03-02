@@ -1,9 +1,6 @@
 package pageobjectclasses;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -21,20 +18,28 @@ public class PHMasterVideoMenuPage extends PHBrowserConfig {
     }
 
     public void ClickMasterVideoMenu() throws InterruptedException {
+
         Thread.sleep(2000);
 
-        Actions action = new Actions(driver);
-        WebElement MastervideoScroll = driver.findElement(By.xpath("//body/div[@id='root']/div[2]/div[1]/ul[1]/div[2]"));
-        action.moveToElement(MastervideoScroll);
+//        WebElement MediaManagerScroll = driver.findElement(By.xpath("//body/div[@id='root']/div[2]/div[1]/ul[1]/div[2]"));
+//        MediaManagerScroll.click();
 
-//
-//        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", MastervideoScroll);
-//        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", MastervideoScroll);
-        //   MastervideoScroll.click();
+        // Locate the menu bar element (replace 'your_menu_locator' with the actual locator of your menu bar)
+        WebElement MediaManagerScroll = driver.findElement(By.xpath("//body/div[@id='root']/div[2]/div[1]/ul[1]/div[2]"));
 
-//        Actions actions = new Actions(driver);
-//        actions.scrollToElement(MastervideoScroll);
-//        actions.click().perform();
+        // Create Actions object
+        Actions actions = new Actions(driver);
+
+        // Perform a sequence of DOWN arrow key presses to scroll down (adjust the number of times based on your needs)
+        for (int i = 0; i < 5; i++) {
+            actions.sendKeys(MediaManagerScroll, Keys.ARROW_DOWN).perform();
+            try {
+                Thread.sleep(1000);  // Add a delay to give the page time to react, adjust as needed
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@href='/masterVideo']")));
@@ -42,7 +47,6 @@ public class PHMasterVideoMenuPage extends PHBrowserConfig {
         WebElement MasterVideoMenu_Link = driver.findElement(By.xpath("//a[@href='/masterVideo']"));
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", MasterVideoMenu_Link);
         ((JavascriptExecutor) driver).executeScript("arguments[0].click();", MasterVideoMenu_Link);
-
 
         Thread.sleep(3000);
 
@@ -59,7 +63,6 @@ public class PHMasterVideoMenuPage extends PHBrowserConfig {
         Thread.sleep(2000);
         ((JavascriptExecutor) driver).executeScript("window.scrollTo(document.body.scrollHeight, 0)");
     }
-
     public void AddMasterVideo() throws InterruptedException, AWTException {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[contains(text(),'Add Master Video')]")));
