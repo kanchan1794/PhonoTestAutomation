@@ -72,14 +72,28 @@ public class PHBankTransferApprovalMenuPage extends PHBrowserConfig {
 //
 //    }
 
-    public void VerifyBankTrasnferApprvalListScrollHorizantal() throws InterruptedException {
+//    public void VerifyBankTrasnferApprvalListScrollHorizantal() throws InterruptedException {
+//
+//        ((JavascriptExecutor) driver).executeScript("window.scrollTo(0,document.body.scrollHeight)");
+//
+//        Thread.sleep(4000);
+//
+//        ((JavascriptExecutor) driver).executeScript("document.querySelector(\"#root > div.c-app.c-default-layout > div.c-wrapper > div > main > div > div > div > div > div.sc-aXZVg.dKvPpX > div > div.table-responsive\").scrollLeft=300");
+//
+//
+//    }
+public void VerifyBankTrasnferApprvalListScrollHorizantal() throws InterruptedException {
+    {
+// Find the table element you want to scroll horizontally
+        WebElement BankTransferApprovaltableToScroll = driver.findElement(By.xpath("//body/div[@id='root']/div[2]/div[2]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]"));
 
-        ((JavascriptExecutor) driver).executeScript("window.scrollTo(0,document.body.scrollHeight)");
+        // Use JavascriptExecutor to scroll horizontally within the table
+        JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
 
-        Thread.sleep(4000);
-
-        ((JavascriptExecutor) driver).executeScript("document.querySelector(\"#root > div.c-app.c-default-layout > div.c-wrapper > div > main > div > div > div > div > div.sc-aXZVg.dKvPpX > div > div.table-responsive\").scrollLeft=300");
-
+        // Adjust the scrollLeft property to scroll to a specific horizontal position within the table
+        jsExecutor.executeScript("arguments[0].scrollLeft = 300;", BankTransferApprovaltableToScroll);
 
     }
+}
+
 }
