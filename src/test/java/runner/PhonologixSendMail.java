@@ -20,9 +20,10 @@ public class PhonologixSendMail {
 //        WebElement fileInput = driver.findElement(By.id("fileInputId"));
 //        fileInput.sendKeys("path/to/your/attachment.txt");
 
+
         // Your email configuration
-        String from = "kanchan1794@gmail.com";
-        String password = "gptg ofqx deai wrjh";// Use App Password for Gmail with 2FA
+        String from = "kanchan@clingmultisolutions.org";
+        String password = "dtld ouyj rdzq lwek";// Use App Password for Gmail with 2FA
         String to = "kanchan@clingmultisolutions.org";
         String subject = "Phonologix Test Report";
         String body = "Phonologix Test Report With Attachment.";
