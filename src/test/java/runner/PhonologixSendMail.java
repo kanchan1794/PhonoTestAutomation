@@ -54,6 +54,7 @@ public class PhonologixSendMail {
             message.setSubject(subject);
             message.setText(body);
 
+
             // Create and attach the file to the email
             MimeBodyPart attachmentBodyPart = new MimeBodyPart();
             attachmentBodyPart.attachFile("C:\\Users\\prana\\Desktop\\Intellij Projects\\PhonoLogixAutomation\\target\\cucumber-report-html\\cucumber-html-reports\\feature-overview.html");
