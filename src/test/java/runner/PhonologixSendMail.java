@@ -57,7 +57,8 @@ public class PhonologixSendMail {
 
             // Create and attach the file to the email
             MimeBodyPart attachmentBodyPart = new MimeBodyPart();
-            attachmentBodyPart.attachFile("C:\\Users\\prana\\Desktop\\Intellij Projects\\PhonoLogixAutomation\\target\\cucumber-report-html\\cucumber-html-reports\\feature-overview.html");
+            attachmentBodyPart.attachFile("/home/ec2-user/PhonoTestAutomation/target/cucumber-report-html/cucumber-html-reports");
+            //attachmentBodyPart.attachFile("C:\\Users\\prana\\Desktop\\Intellij Projects\\PhonoLogixAutomation\\target\\cucumber-report-html\\cucumber-html-reports\\feature-overview.html");
 
             // Create Multipart and add message and attachment to it
             Multipart multipart = new MimeMultipart();
