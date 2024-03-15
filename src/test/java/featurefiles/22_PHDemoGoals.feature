@@ -8,8 +8,7 @@ Feature: Test Phonologix Demo Goals Menu Functionality
 
   @DemoGoals-CategoryAndSubCategory
   Scenario: Phonologix DemoGoals-Category And SubCategory Functionality
-    When Admin First Select Category value
-  And Admin Then Select Sub-Category Value
+    When Admin First Select Category And Sub-Category value
     Then Admin Can See Selected Category And SubCategory Demo goals Record
 
   @DemoGoalsDeleteFunction

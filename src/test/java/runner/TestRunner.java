@@ -5,9 +5,13 @@ import io.cucumber.junit.CucumberOptions;
 import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
-		features = {"src/test/java/featurefiles"},
+		//format = {"pretty", "html:target/Destination"},
+features = {"src/test/java/featurefiles"},
         glue = {"stepdefinitions"},
-		plugin = {"json:target/cucumber.json"},
+		//plugin = {"pretty","html:target/cucumber.html"},
+
+plugin = {"json:target/cucumber.json"},
+
 
 tags = "@Login or @ScreeningTestMenu or @ViewScreeningReport or @ScreeningTestpagenavigation"
 		///---------------------TILL THE TIME EXECUTION-------------------///
