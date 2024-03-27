@@ -15,8 +15,8 @@ Feature: Test Phonologix Slot Menu Functionality
     Then Admin Can See Slot Calendar For Perticular Status
     When Admin Can Select Start-Time from DropDown-List
     Then Admin Can See Slot Calendar For Perticular Start-Time
-  @SlotZoomReportSubmenu
 
+  @SlotZoomReportSubmenu
   Scenario: Phonologix Slot Zoom Report Submenu Functionality
     When Admin clicks on Slot-Zoom Report submenu
     Then Admin Can See The Slot-Zoom Report

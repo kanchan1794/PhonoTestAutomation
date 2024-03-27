@@ -11,7 +11,7 @@ public class PHSlot extends PHBrowserConfig {
 
 
     @When("Admin clicks on Slot menu")
-    public void adminClicksOnBankTransferApprovalMenu() throws InterruptedException {
+    public void adminClicksOnSlotMenu() throws InterruptedException {
         ObjPHSLMPage.ClickSlotsMenu();
         System.out.println("ADMIN CLICK ON Slot Menu");
     }

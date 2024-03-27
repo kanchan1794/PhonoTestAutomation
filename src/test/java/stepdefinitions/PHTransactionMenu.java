@@ -1,5 +1,6 @@
 package stepdefinitions;
 
+import CommonUtils.ScreenRecorderUtil;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -12,7 +13,8 @@ public class PHTransactionMenu extends PHBrowserConfig {
     PHTransactionMenuPage ObjPHTRMBPage = new PHTransactionMenuPage(driverThread.get());
 
     @When("Admin clicks on Transaction menu")
-    public void adminClicksOnTransactionMenu() throws InterruptedException {
+    public void adminClicksOnTransactionMenu() throws Exception {
+        ScreenRecorderUtil.startRecord("TRANSACTION MENU-PHONOLOGIX ADMIN DASHBOARD");
         ObjPHTRMBPage.ViewTransactionMenu();
         System.out.println("ADMIN CAN CLICK ON TRANSACTION MENU");
     }
@@ -25,7 +27,7 @@ public class PHTransactionMenu extends PHBrowserConfig {
     }
 
     @When("Admin Enters Search Keywords For Transaction")
-    public void adminEntersSearchKeywordsForTransaction() {
+    public void adminEntersSearchKeywordsForTransaction() throws InterruptedException {
         ObjPHTRMBPage.SearchTransactionrecords();
         System.out.println("ADMIN CAN ENTERS SEARCH KEYWORDS FOR TRANSACTION");
 
@@ -39,7 +41,7 @@ public class PHTransactionMenu extends PHBrowserConfig {
     }
 
     @When("Admin clicks on perticular page breadcrumbs from transaction menu")
-    public void adminClicksOnPerticularPageBreadcrumbsFromTransactionMenu() {
+    public void adminClicksOnPerticularPageBreadcrumbsFromTransactionMenu() throws InterruptedException {
         ObjPHTRMBPage.ClickOnTransactionpageBreadCrumbs();
         System.out.println("ADMIN CLICK ON TRANSACTION PAGE BREAD CRUMBS");
 
@@ -50,7 +52,7 @@ public class PHTransactionMenu extends PHBrowserConfig {
     public void adminCanSeeTheDataOnPerticularPageFromTranssactionMenu() throws InterruptedException {
         ObjPHTRMBPage.ValidateTRanSearchPageBreadCrumbsPage();
         System.out.println("ADMIN CAN SEE DATA ON PERTICULAR PAGE");
-       ObjPHTRMBPage.GOPreviousPage();
+       //ObjPHTRMBPage.GOPreviousPage();
        System.out.println("ADMIN CAN GO TO PREVIOUS PAGE");
     }
 
@@ -62,9 +64,10 @@ public class PHTransactionMenu extends PHBrowserConfig {
     }
 
     @And("Admin can scroll horizantally inside the Transaction list table")
-    public void adminCanScrollHorizantallyInsideTheTransactionListTable() throws InterruptedException {
+    public void adminCanScrollHorizantallyInsideTheTransactionListTable() throws Exception {
         ObjPHTRMBPage.VerifyTransactionListScrollHorizantal();
         System.out.println("ADMIN CAN SCROLL HORIZANTAL INSIDE TABLE--TRANSACTION");
+        ScreenRecorderUtil.stopRecord();
 
     }
 }

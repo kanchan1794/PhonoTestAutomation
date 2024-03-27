@@ -41,7 +41,6 @@ Feature: Test Phonologix Therapist Menu Functionality
     And Admin can scroll vertically inside the list table
     And Admin can scroll horizantally inside the list table
 
-
     @TherapistAddSubMenu
     Scenario: Phonologix Add Therapist Functionality
       When Admin clicks on Add submenu

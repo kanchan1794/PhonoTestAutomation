@@ -1,5 +1,6 @@
 package stepdefinitions;
 
+import CommonUtils.ScreenRecorderUtil;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pageobjectclasses.PHBrowserConfig;
@@ -14,7 +15,8 @@ public class PHScreeningTestMenu extends PHBrowserConfig {
     PHScreeningTestMenuPage ObjPHSTMBPage = new PHScreeningTestMenuPage(driverThread.get());
 
     @When("Admin clicks on Screening Test menu")
-    public void adminClicksOnScreeningTestMenu() throws InterruptedException {
+    public void adminClicksOnScreeningTestMenu() throws Exception {
+        ScreenRecorderUtil.startRecord("SCREENING TEST MENU-PHONOLOGIX ADMIN DASHBOARD");
         ObjPHSTMBPage.ClickScreeningTestMenu();
         System.out.println("ADMIN CAN CLICK ON TUTORIALS MENU");
     }
@@ -49,8 +51,22 @@ public class PHScreeningTestMenu extends PHBrowserConfig {
     }
 
     @Then("Admin Can Naviagte To The Screening Test Perticular Page")
-    public void adminCanNaviagteToTheScreeningTestPerticularPage() throws InterruptedException {
+    public void adminCanNaviagteToTheScreeningTestPerticularPage() throws Exception {
         ObjPHSTMBPage.ValidateScreeningTestpagenavigation();
         System.out.println("ADMIN CAN NAVIGATE TO THE SCREENING TEST PERTICULAR PAGE");
+        Thread.sleep(2000);
+        ScreenRecorderUtil.stopRecord();
+    }
+
+    @When("Admin enters value to search for screening test record")
+    public void adminEntersValueToSearchForScreeningTestRecord() throws InterruptedException {
+        ObjPHSTMBPage.SearchScreeningTestRecord();
+        System.out.println("ADMIN CAN ENTERS VALUE TO SEARCH FOR SCREENING TEST RECORD");
+        
+    }
+
+    @Then("Admin can see perticular screening test result")
+    public void adminCanSeePerticularScreeningTestResult() {
+        System.out.println("ADMIN CAN SEE PERTICULAR SCREENING TEST");
     }
 }

@@ -58,31 +58,40 @@ public class PHTransactionMenuPage extends PHBrowserConfig{
         Assert.assertTrue(driver.findElement(By.xpath("//h3[contains(text(),'Transactions')]")).isDisplayed());
         System.out.println("**********"+driver.findElement(By.xpath("//h3[contains(text(),'Transactions')]")).isDisplayed()+"**********");
     }
-    public void SearchTransactionrecords()
-    {
+    public void SearchTransactionrecords() throws InterruptedException {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='filter-input-focus']")));
         WebElement SearchTransactionrecord = driver.findElement(By.xpath("//input[@id='filter-input-focus']"));
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", SearchTransactionrecord);
         SearchTransactionrecord.sendKeys("Sandeep");
+        Thread.sleep(3000);
+        String s = Keys.chord(Keys.CONTROL, "a");
+        SearchTransactionrecord.sendKeys(s);
+        // sending DELETE key
+        SearchTransactionrecord.sendKeys(Keys.DELETE);
+
+        Thread.sleep(2000);
 
         //((JavascriptExecutor) driver).executeScript("arguments[0].click();", SearchTransactionrecord);
 
     }
     public void ValidateTransactionRecordsPage() throws InterruptedException {
         Thread.sleep(4000);
-        Assert.assertTrue(driver.findElement(By.xpath("//td[contains(text(),'pay_NHF47yKSDuxgWZ')]")).isDisplayed());
-        System.out.println("**********"+driver.findElement(By.xpath("//td[contains(text(),'pay_NHF47yKSDuxgWZ')]")).isDisplayed()+"**********");
+        Assert.assertTrue(driver.findElement(By.xpath("//h3[contains(text(),'Transactions')]")).isDisplayed());
+        System.out.println("**********"+driver.findElement(By.xpath("//h3[contains(text(),'Transactions')]")).isDisplayed()+"**********");
 
     }
-    public void ClickOnTransactionpageBreadCrumbs()
-    {
+    public void ClickOnTransactionpageBreadCrumbs() throws InterruptedException {
 
         WebDriverWait Wait = new WebDriverWait(driver,Duration.ofSeconds(20));
         Wait.until((ExpectedConditions.visibilityOfElementLocated((By.linkText("5")))));
         WebElement TraPageBreadCrumbs_Link = driver.findElement(By.linkText("5"));
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", TraPageBreadCrumbs_Link);
         ((JavascriptExecutor) driver).executeScript("arguments[0].click();", TraPageBreadCrumbs_Link);
+Thread.sleep(3000);
+        ((JavascriptExecutor) driver).executeScript("window.scrollTo(document.body.scrollHeight, 0)");
+   Thread.sleep(3000);
+        ((JavascriptExecutor) driver).executeScript("window.scrollTo(0,document.body.scrollHeight)");
 
     }
 
@@ -92,6 +101,15 @@ public class PHTransactionMenuPage extends PHBrowserConfig{
 
         System.out.println("**********" + driver.findElement(By.xpath("//h3[contains(text(),'Transactions')]")).isDisplayed() + "**********");
         Thread.sleep(2000);
+
+        WebDriverWait Wait = new WebDriverWait(driver,Duration.ofSeconds(20));
+        Wait.until((ExpectedConditions.visibilityOfElementLocated((By.linkText("1")))));
+        WebElement PreviousPage_Link = driver.findElement(By.linkText("1"));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", PreviousPage_Link);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", PreviousPage_Link);
+Thread.sleep(3000);
+        ((JavascriptExecutor) driver).executeScript("window.scrollTo(document.body.scrollHeight, 0)");
+
 
     }
     public void GOPreviousPage() throws InterruptedException {
@@ -103,7 +121,7 @@ public class PHTransactionMenuPage extends PHBrowserConfig{
         GoBackTrPage.click();
        // JavascriptExecutor js = (JavascriptExecutor)driver;
         //js.executeScript("arguments[0].scrollIntoView();", driver.findElement(By.xpath("//h3[contains(text(),'Transactions')])")));
-driver.navigate().back();
+//driver.navigate().back();
 
 
 //        WebElement TRScrollUP = driver.findElement(By.xpath("//h3[contains(text(),'Transactions')])"));

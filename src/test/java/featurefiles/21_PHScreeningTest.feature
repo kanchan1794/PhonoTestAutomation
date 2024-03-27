@@ -5,6 +5,8 @@ Feature: Test Phonologix Screening Test  Menu Functionality
     #Given Browser is open and user is logged in
     When Admin clicks on Screening Test menu
     Then Admin can see Screening Test Details
+    When Admin enters value to search for screening test record
+    Then Admin can see perticular screening test result
 
   @ViewScreeningReport
   Scenario: Phonologix View Screening Report Test Functionality

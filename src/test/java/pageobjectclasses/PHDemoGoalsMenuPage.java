@@ -1,10 +1,7 @@
 package pageobjectclasses;
 
 import junit.framework.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.interactions.WheelInput;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -43,7 +40,27 @@ public class PHDemoGoalsMenuPage extends PHBrowserConfig {
         Thread.sleep(2000);
         ((JavascriptExecutor) driver).executeScript("window.scrollTo(document.body.scrollHeight, 0)");
     }
+    public void SearchDemoGoalsRecord() throws InterruptedException {
 
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='filter-input-focus']")));
+        WebElement Search_DemoGoalsRecord = driver.findElement(By.xpath("//input[@id='filter-input-focus']"));
+//Search_BankTransferApprovalRecord.sendKeys("Sandeep");
+        Thread.sleep(2000);
+        Search_DemoGoalsRecord.sendKeys("Eye-contact");
+        Thread.sleep(2000);
+        ((JavascriptExecutor) driver).executeScript("window.scrollTo(0,document.body.scrollHeight)");
+        Thread.sleep(2000);
+        ((JavascriptExecutor) driver).executeScript("window.scrollTo(document.body.scrollHeight, 0)");
+        // sending Ctrl+a by Keys.Chord()
+        String s = Keys.chord(Keys.CONTROL, "a");
+        Search_DemoGoalsRecord.sendKeys(s);
+        // sending DELETE key
+        Thread.sleep(2000);
+        Search_DemoGoalsRecord.sendKeys(Keys.DELETE);
+        Thread.sleep(2000);
+
+    }
     public void ValidateDemoGoalspage() throws InterruptedException {
         Thread.sleep(4000);
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.xpath("//h3[contains(text(),'Screening Tests')]")));//h3[contains(text(),'Therapists')]);
@@ -68,7 +85,7 @@ public class PHDemoGoalsMenuPage extends PHBrowserConfig {
 
         WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(20));
         wait1.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"demoGam\"]/div/div/div[1]/div[2]/div/div/div/select")));
-        WebElement SubCategory_dropdown = driver.findElement(By.id("subCategory"));
+        WebElement SubCategory_dropdown = driver.findElement(By.xpath("//*[@id=\"demoGam\"]/div/div/div[1]/div[2]/div/div/div/select"));
         SubCategory_dropdown.click();
         Select SubCategory = new Select(SubCategory_dropdown);
         SubCategory.selectByValue("Eye-contact");
@@ -85,20 +102,27 @@ public class PHDemoGoalsMenuPage extends PHBrowserConfig {
 //        //SCROLL TO TOP OF THE PAGE
         Thread.sleep(2000);
 
-        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.xpath("//h3[contains(text(),'Master Activities')]")));
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.xpath("//h3[contains(text(),'Demo Goals')]")));
 
         // ((JavascriptExecutor) driver).executeScript("window.scrollTo(document.body.scrollHeight, 0)");
         Category.selectByValue("All");
         Thread.sleep(2000);
+        ((JavascriptExecutor) driver).executeScript("window.scrollTo(0,document.body.scrollHeight)");
+
         //SubCategory.selectByValue("All");
         //Thread.sleep(2000);
        // CategorySubmit.click();
+
+        Thread.sleep(2000);
+
+        ((JavascriptExecutor) driver).executeScript("window.scrollTo(document.body.scrollHeight, 0)");
+
     }
     public void DeletDemoGoals()
     {
         WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(20));
         wait.until((ExpectedConditions.visibilityOfElementLocated(By.xpath("//tbody/tr[1]/td[5]/div[1]/button[1]"))));
-        WebElement DeleteDemoGoals= driver.findElement(By.xpath("//a[contains(text(),'3')]"));
+        WebElement DeleteDemoGoals= driver.findElement(By.xpath("//tbody/tr[1]/td[5]/div[1]/button[1]"));
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true);", DeleteDemoGoals);
         ((JavascriptExecutor)driver).executeScript("arguments[0].click();", DeleteDemoGoals);
     }

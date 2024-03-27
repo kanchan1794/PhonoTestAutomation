@@ -1,5 +1,6 @@
 package stepdefinitions;
 
+import CommonUtils.ScreenRecorderUtil;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -17,13 +18,15 @@ public class PHDBTherapistMenu extends PHBrowserConfig {
 
     @Given("Admin is on phonologix dashborad")
     public void adminIsOnPhonologixDashborad() throws Exception {
+//ScreenRecorderUtil.startRecord("Therapist");
         ObjPHTMBPage.DashpboardPageURL();
 
     }
 
     @When("Admin clicks on Therapist menu")
-    public void admin_clicks_on_therapist_menu() {
+    public void admin_clicks_on_therapist_menu() throws Exception {
         // Write code here that turns the phrase above into concrete actions
+        //ScreenRecorderUtil.startRecord("Therapist Menu-Admin DashbOard");
         ObjPHTMBPage.ViewTherapistMenu();
         System.out.println("'-----ADMIN CLICKS ON THERAPIST MENU -----");
     }
@@ -102,10 +105,10 @@ public class PHDBTherapistMenu extends PHBrowserConfig {
     }
 
     @And("Admin can scroll horizantally inside the list table")
-    public void adminCanScrollHorizantallyInsideTheListTable() throws InterruptedException {
+    public void adminCanScrollHorizantallyInsideTheListTable() throws Exception {
         ObjPHTMBPage.VerifyTherapistListScrollHorizantal();
         System.out.println("------ADMIN CAN SCROLL HORIZANTALLY INSIDE THE LIST TABLE------");
-
+        //ScreenRecorderUtil.stopRecord();
     }
 
     @When("Admin Clicks On Key Icon To View Therapist Credentials")
@@ -172,10 +175,11 @@ public class PHDBTherapistMenu extends PHBrowserConfig {
     }
 
     @And("Admin navigates on dashboard page")
-    public void adminNavigatesOnDashboardPage() {
-        ObjPHTMBPage.GoBackHomePage();
+    public void adminNavigatesOnDashboardPage() throws Exception {
 
+        ObjPHTMBPage.GoBackHomePage();
         System.out.println("ADMIN NAVIGATES TO DASHBOARD PAGE");
+        //ScreenRecorderUtil.stopRecord();
     }
 
 

@@ -1,5 +1,9 @@
 package pageobjectclasses;
 
+//import atu.testrecorder.ATUTestRecorder;
+import CommonUtils.ScreenRecorderUtil;
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import junit.framework.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -14,15 +18,22 @@ import java.time.Duration;
 public class PHDashboardPage extends PHBrowserConfig{
 
 	private WebDriver driver=null;
+	//ATUTestRecorder recorder;
 	public PHDashboardPage(WebDriver driver) {
 		//public PHLogInPage(WebDriver driver) {
 		this.driver=driver;
 		//this.driver = new ChromeDriver();
 		//PageFactory.initElements(driver, this);
 	}
+	//Before
 
 	@SuppressWarnings("deprecation")
 	public void UserLoggedIn() throws Exception {
+
+		//recorder = new ATUTestRecorder(System.getProperty("userdir") + "TestCaseExecutionVideos");
+//recorder= new ATUTestRecorder("")
+
+				//recorder.start();
 		//BrowserConfig.SetDriver();
 		driver.get("https://staging.dh8h2bodd8qh6.amplifyapp.com/login");
 
@@ -179,6 +190,12 @@ public class PHDashboardPage extends PHBrowserConfig{
 
 	//driver.get(ExpectedResult);
 
+public void teardown()
+{
+	driver.close();
+	driver.quit();
+
+}
 
 //		//VALIDATE LOGIN TEXT ON PAGE
 //		Thread.sleep(4000);

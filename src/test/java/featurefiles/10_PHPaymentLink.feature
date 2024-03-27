@@ -9,8 +9,8 @@ Feature: Test Phonologix PaymentLink Menu Functionality
   Scenario: Phonologix PaymentLink Submenu List Functionality
     When Admin clicks on PaymentLink-List submenu
     Then Admin can see The details of list of PaymentLinks
-      #When Admin Enters Search Keywords
-      #Then Relevant Search Results Generated
+    When Admin Enters Search Keywords For Payment Link
+    Then Relevant Search Results Generated For Payment Link
   @PaymentLinkListScrollTOP-Bottom
   Scenario: Phonologix PaymentLink Submenu List Scroll Functionality
     And Admin Can Check the Working Of Scorll Bar Functionality

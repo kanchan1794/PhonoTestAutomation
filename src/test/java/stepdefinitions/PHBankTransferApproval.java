@@ -1,5 +1,6 @@
 package stepdefinitions;
 
+import CommonUtils.ScreenRecorderUtil;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -12,8 +13,10 @@ public class PHBankTransferApproval extends PHBrowserConfig {
 
 
     @When("Admin clicks on Bank Tarnsfer Approval Menu")
-    public void adminClicksOnBankTransferApprovalMenu() throws InterruptedException {
+    public void adminClicksOnBankTransferApprovalMenu() throws Exception {
+        ScreenRecorderUtil.startRecord("BANK TRANSFER APPROVAL MENU");
         ObjPHBTAMPage.ClickBankTransferApprovalMenu();
+
         System.out.println("ADMIN CLICK ON BANK TRANSFER APPROVAL MENU");
     }
 
@@ -26,7 +29,7 @@ public class PHBankTransferApproval extends PHBrowserConfig {
     }
 
     @When("Admin Clicks On View Payment Proof")
-    public void adminClicksOnViewPaymentProof() {
+    public void adminClicksOnViewPaymentProof() throws InterruptedException {
         ObjPHBTAMPage.ViewPaymentProof();
 
         System.out.println("ADMIN CAN CLICK ON VIEW PAYMENT PROOF");
@@ -50,8 +53,16 @@ public class PHBankTransferApproval extends PHBrowserConfig {
 
     @And("Admin can scroll horizantally inside the bank transfer approval list table")
     public void adminCanScrollHorizantallyInsideTheBankTransferApprovalListTable() throws InterruptedException {
-   ObjPHBTAMPage.VerifyBankTrasnferApprvalListScrollHorizantal();
+   ObjPHBTAMPage.ScrollverticalInsideBTAMenuetable();
    System.out.println("ADMIN CAN SCROLL HORIZANTALLY INSIDE THE BANK TRANSFER APPROVAL LIST TABLE");
 
+    }
+
+    @And("Admin can scroll vertically inside the bank transfer approval list table")
+        public void adminCanScrollVerticallyInsideTheBankTransferApprovalListTable() throws Exception {
+        ObjPHBTAMPage.ScrollHorizantalInsideBTAMenutable();
+        System.out.println("ADMIN CAN SCROLL HORIZANTALLY INSIDE THE BANK TRANSFER APPROVAL LIST TABLE");
+Thread.sleep(2000);
+        ScreenRecorderUtil.stopRecord();
     }
 }

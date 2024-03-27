@@ -4,6 +4,9 @@ Feature: Test Phonologix Bank Tarnsfer Approval Menu Functionality
     When Admin clicks on Bank Tarnsfer Approval Menu
     Then Admin can see Bank Tarnsfer Approval  List
     And Admin Can Search Record From Bank Transfer Approval List
+
+  @BankTransferViewPaymentProof
+  Scenario: Phonologix Bank Transfer Approval View Payment Proof Functionality
     When Admin Clicks On View Payment Proof
     Then Admin Can See Payment Information
 
@@ -11,6 +14,7 @@ Feature: Test Phonologix Bank Tarnsfer Approval Menu Functionality
   Scenario: Phonologix Bank Transfer Approval Acroll Inside Table Functionality
   #And Admin can scroll vertically inside the bank transfer approval list table
     And Admin can scroll horizantally inside the bank transfer approval list table
+    And Admin can scroll vertically inside the bank transfer approval list table
 
 
   #@InvoicePageBreadCrumbs

@@ -17,3 +17,14 @@ Feature: Test Phonologix Media Manager  Menu Functionality
   Scenario: Phonologix Media Manger Add Media File Functionality
     When Admin Enters click on Add Media File
     Then Admin Can Add New Media file
+
+  @MediaManagerNextPreviousButton
+  Scenario: Phonologix Media Manger Next And Previous Button Functionality
+    And  Admin Can Click On next Button To See The Media On next Page
+    Then Admin Can Navigate Back To The First Page By Clicking On Previous Button
+
+   @HandlingMedia
+   Scenario: Phonologix Media Manger Handle Media Functionality
+     And Admin Can Click On Preview Icon
+     And Admin Can Click On Edit Media icon
+     And Admin Can Click On Media Usuage Icon

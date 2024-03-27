@@ -1,5 +1,6 @@
 package stepdefinitions;
 
+import CommonUtils.ScreenRecorderUtil;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -17,6 +18,7 @@ public class PHDashboard extends PHBrowserConfig {
 	@Given("Browser is open and user is logged in")
 	public void browser_is_open_and_user_is_logged_in() throws Exception {
 	    // Write code here that turns the phrase above into concrete actions
+		//ScreenRecorderUtil.startRecord("Login");
 		ObjPHDBPage.UserLoggedIn();
 		System.out.println("------User Is LoggedIN------");
 	}
@@ -76,12 +78,14 @@ public class PHDashboard extends PHBrowserConfig {
 	}
 
 	@Then("User Navigates To Assessments Report Page")
-	public void user_navigates_to_assessments_report_page() throws InterruptedException {
+	public void user_navigates_to_assessments_report_page() throws Exception {
 	    // Write code here that turns the phrase above into concrete actions
 		ObjPHDBPage.ViewAssessmentlist();	
 		Thread.sleep(2000);
 		ObjPHDBPage.NaviagteBack();
-
+		Thread.sleep(2000);
+		//ObjPHDBPage.teardown();
+		//ScreenRecorderUtil.stopRecord();
 	}
 
 

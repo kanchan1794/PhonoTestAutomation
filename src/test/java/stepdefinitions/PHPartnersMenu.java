@@ -1,8 +1,10 @@
 package stepdefinitions;
 
+import CommonUtils.ScreenRecorderUtil;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.monte.screenrecorder.ScreenRecorder;
 import pageobjectclasses.PHBrowserConfig;
 import pageobjectclasses.PHPartnersMenuPage;
 
@@ -12,7 +14,8 @@ public class PHPartnersMenu extends PHBrowserConfig {
     PHPartnersMenuPage ObjPHPMBPage = new PHPartnersMenuPage(driverThread.get());
 
     @When("Admin clicks on Partners menu")
-    public void adminClicksOnPartnersMenu() {
+    public void adminClicksOnPartnersMenu() throws Exception {
+        ScreenRecorderUtil.startRecord("Partner");
         ObjPHPMBPage.ViewPartnerMenu();
         System.out.println("ADMIN CAN CLICK ON PARTNERS MENU");
     }
@@ -125,9 +128,10 @@ public class PHPartnersMenu extends PHBrowserConfig {
     }
 
     @Then("Admin can edit the partners details")
-    public void adminCanEditThePartnersDetails() throws InterruptedException {
+    public void adminCanEditThePartnersDetails() throws Exception {
         ObjPHPMBPage.EditPartnersDetails();
         System.out.println("------ADMIN CAN CLICK ON SUBMIT BUTTON TO SAVE PARTNER DETAILS");
-
+       //Thread.sleep(3000);
+        ScreenRecorderUtil.stopRecord();
     }
 }

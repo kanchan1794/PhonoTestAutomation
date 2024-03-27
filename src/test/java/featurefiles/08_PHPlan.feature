@@ -14,13 +14,18 @@ Feature: Test Phonologix Plan Menu Functionality
     When Admin Can Click On Plans view Icon
     Then Admin Can See Plans Details
 
-  @PlanViewDetails
-  Scenario: Phonologix View Plan Functionality
-    When Admin Can Click On Plans view Icon
-    Then Admin Can See Plans Details
+  @PlanEditDetails
+  Scenario: Phonologix Edit Plan Functionality
     When Admin clicks on edit button to edit the plan details
     Then Admin can edit the plan details
-   # When Admin Enters Search Keywords for Leads
-    #Then Relevant Search Results For Leads Generated
-    #When Admin select value from lead dropdown list
-    #Then admin can see relevant lead record
+
+  @AddPlanDetails
+  Scenario: Phonologix Add Plan Functionality
+    When Admin Clicks on plan Add Submenu
+    Then Admin can Add New plan details
+
+  @DeletePlan
+  Scenario: Phonologix Delete Plan Functionality
+    When Admin Clicks on Delete Icon
+    Then Admin Can Delete Plan Record
+

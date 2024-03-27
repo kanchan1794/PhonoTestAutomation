@@ -1,10 +1,7 @@
 package pageobjectclasses;
 
 import junit.framework.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -40,8 +37,23 @@ public class PHScreeningTestMenuPage extends PHBrowserConfig {
         Thread.sleep(2000);
         ((JavascriptExecutor) driver).executeScript("window.scrollTo(document.body.scrollHeight, 0)");
     }
+    public void SearchScreeningTestRecord() throws InterruptedException {
 
-    public void ViewScreeningTestreport() throws InterruptedException, AWTException {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='filter-input-focus']")));
+        WebElement Search_ScreeningTestRecord = driver.findElement(By.xpath("//input[@id='filter-input-focus']"));
+//Search_BankTransferApprovalRecord.sendKeys("Sandeep");
+        Thread.sleep(2000);
+        Search_ScreeningTestRecord.sendKeys("Female");
+        // sending Ctrl+a by Keys.Chord()
+        String s = Keys.chord(Keys.CONTROL, "a");
+        Search_ScreeningTestRecord.sendKeys(s);
+        // sending DELETE key
+        Thread.sleep(2000);
+        Search_ScreeningTestRecord.sendKeys(Keys.DELETE);
+        Thread.sleep(2000);
+    }
+        public void ViewScreeningTestreport() throws InterruptedException, AWTException {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//tbody/tr[1]/td[7]/div[1]/a[1]")));
         WebElement ViewReport_Link = driver.findElement(By.xpath("//tbody/tr[1]/td[7]/div[1]/a[1]"));

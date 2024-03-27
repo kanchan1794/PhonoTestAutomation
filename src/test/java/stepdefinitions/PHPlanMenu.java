@@ -1,5 +1,6 @@
 package stepdefinitions;
 
+import CommonUtils.ScreenRecorderUtil;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pageobjectclasses.PHBrowserConfig;
@@ -10,7 +11,8 @@ public class PHPlanMenu extends PHBrowserConfig {
     PHPlanMenuPage ObjPHPMBPage = new PHPlanMenuPage(driverThread.get());
 
     @When("Admin clicks on Plan menu")
-    public void adminClicksOnLeadMenu() throws InterruptedException {
+    public void adminClicksOnLeadMenu() throws Exception {
+        ScreenRecorderUtil.startRecord("Plan Menu");
         ObjPHPMBPage.ViewPlanMenu();
         System.out.println("ADMIN CLICK ON PLAN MENU");
     }
@@ -35,7 +37,7 @@ public class PHPlanMenu extends PHBrowserConfig {
     }
 
     @When("Admin Can Click On Plans view Icon")
-    public void adminEntersSearchKeywordsForLeads() throws InterruptedException {
+    public void admincanclickonplansviewicon() throws InterruptedException {
        // ObjPHLMBPage.SearchLeadRecord();
         ObjPHPMBPage.ClickToViewPlanDetails();
         System.out.println("ADMIN CAN CLICK ON PLANS VIEW ICON");
@@ -43,7 +45,7 @@ public class PHPlanMenu extends PHBrowserConfig {
     }
 
     @Then("Admin Can See Plans Details")
-    public void relevantSearchResultsForLeadsGenerated() {
+    public void admincanseepplansdetails() {
         System.out.println("ADMIN CAN SEE PLAN DETAILS");
     }
 
@@ -67,8 +69,37 @@ public class PHPlanMenu extends PHBrowserConfig {
     }
 
     @Then("Admin can edit the plan details")
-    public void adminCanEditThePlanDetails() {
+    public void adminCanEditThePlanDetails() throws Exception {
+ObjPHPMBPage.EditPlanDetails();
         System.out.println("ADMIN CAN EDIT THE PLAN DETAILS");
+       // ScreenRecorderUtil.stopRecord();
     }
+
+    @When("Admin Clicks on plan Add Submenu")
+    public void adminClicksOnPlanAddSubmenu() throws InterruptedException {
+        ObjPHPMBPage.ClickPlanAddSubMenu();
+        System.out.println("ADMIN CLICKS ON PLAN SUBMENU");
+    }
+
+    @Then("Admin can Add New plan details")
+    public void adminCanAddNewPlanDetails() throws Exception {
+        ObjPHPMBPage.AddNewPlan();
+        System.out.println("ADMIN CAN ADD NEW PLAN DETAILS");
+
+    }
+
+    @When("Admin Clicks on Delete Icon")
+    public void adminClicksOnDeleteIcon() throws InterruptedException {
+        ObjPHPMBPage.DeletePlan();
+        System.out.println("ADMIN CLICKS ON DELETE ICON");
+        
+    }
+
+    @Then("Admin Can Delete Plan Record")
+    public void adminCanDeletePlanRecord() throws Exception {
+        System.out.println("ADMIN CAN DELETE PLAN RECORD");
+        ScreenRecorderUtil.stopRecord();
+    }
+
 }
 

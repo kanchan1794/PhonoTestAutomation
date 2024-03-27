@@ -57,12 +57,12 @@ public class PHMediaManagerMenuPage extends PHBrowserConfig{
         ((JavascriptExecutor) driver).executeScript("arguments[0].click();", MediaManagerMenu_Link);
 Thread.sleep(3000);
 
-        WebElement Middle_Scroll = driver.findElement(By.xpath("//h4[contains(text(),'SouthKoreaFlag')]"));
-        //scroll to middle with Javascript Executor
-        JavascriptExecutor j = (JavascriptExecutor) driver;
-        j.executeScript("arguments[0].scrollIntoView({block: 'center', inline: 'nearest'})", Middle_Scroll);
-        Thread.sleep(2000);
-        ((JavascriptExecutor) driver).executeScript("window.scrollTo(0,document.body.scrollHeight)");
+//        WebElement Middle_Scroll = driver.findElement(By.xpath("//h4[contains(text(),'SouthKoreaFlag')]"));
+//        //scroll to middle with Javascript Executor
+//        JavascriptExecutor j = (JavascriptExecutor) driver;
+//        j.executeScript("arguments[0].scrollIntoView({block: 'center', inline: 'nearest'})", Middle_Scroll);
+//        Thread.sleep(2000);
+//        ((JavascriptExecutor) driver).executeScript("window.scrollTo(0,document.body.scrollHeight)");
         Thread.sleep(2000);
         ((JavascriptExecutor) driver).executeScript("window.scrollTo(document.body.scrollHeight, 0)");
 
@@ -78,12 +78,9 @@ Thread.sleep(3000);
         Actions actions = new Actions(driver);
         actions.moveToElement(SearchMedia);
         actions.click();
-       // actions.sendKeys("Fruits");
-        //Thread.sleep(2000);
-        //actions.sendKeys(Keys.ENTER);
         Thread.sleep(4000);
         actions.sendKeys("Vehicles");
-      //  Thread.sleep(3000);
+        Thread.sleep(6000);
         actions.sendKeys(Keys.ENTER);
         Thread.sleep(5000);
         actions.sendKeys(Keys.BACK_SPACE);
@@ -103,6 +100,13 @@ Thread.sleep(3000);
         SearchSubmit.click();
         Thread.sleep(3000);
         SearchSubmit.click();
+        Thread.sleep(3000);
+        // sending Ctrl+a by Keys.Chord()
+        String s = Keys.chord(Keys.CONTROL, "a");
+        Searchdetails.sendKeys(s);
+        // sending DELETE key
+        Searchdetails.sendKeys(Keys.DELETE);
+
 
 
 
@@ -122,56 +126,49 @@ Thread.sleep(3000);
         Category_dropdown.click();
         Select Category = new Select(Category_dropdown);
         Category.selectByValue("Fruits");
-        //       WebElement SelectCategoryDrp =  driver.findElement(By.xpath("//select[@name='select']"));
-//       SelectCategoryDrp.click();
-//        Select drpCategory = new Select(driver.findElement(By.xpath("//select[@name='select']")));
         Thread.sleep(3000);
         // drpCategory.selectByVisibleText("Fruits");
-        Thread.sleep(3000);
+        //Thread.sleep(3000);
         WebElement EnterTitle = driver.findElement(By.xpath("//input[@placeholder='Enter title here']"));
         EnterTitle.sendKeys("Fruits Media");
-
-        //        Actions actions = new Actions(driver);
-//        actions.moveToElement(EnterTitle);
-//        actions.sendKeys("fruits media");
         Thread.sleep(3000);
         WebElement EnterDescription = driver.findElement(By.tagName("textarea"));
         EnterDescription.sendKeys("Fruits Media File");
-//        Actions actions1 = new Actions(driver);
-//        actions1.moveToElement(EnterDescription);
-//        actions1.sendKeys("Fruits Media File");
-
-
         //-----*** WITH THE HELP OF ROBOT CLASS FILE UPLOAD------//
         // file path passed as parameter to StringSelection
 
-        StringSelection s = new StringSelection("C:\\Users\\prana\\Downloads\\fruits.jpg");
-        // Clipboard copy
-        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(s,null);
-        //identify element and click
-        driver.findElement(By.xpath("//div[contains(text(),'Browse')]")).click();
-        // Robot object creation
-        Robot r = new Robot();
-        //pressing enter
-        r.keyPress(KeyEvent.VK_ENTER);
-        //releasing enter
-        r.keyRelease(KeyEvent.VK_ENTER);
-        //pressing ctrl+v
-        r.keyPress(KeyEvent.VK_CONTROL);
-        r.keyPress(KeyEvent.VK_V);
-        //releasing ctrl+v
-        r.keyRelease(KeyEvent.VK_CONTROL);
-        r.keyRelease(KeyEvent.VK_V);
-        //pressing enter
-        r.keyPress(KeyEvent.VK_ENTER);
-        //releasing enter
-        r.keyRelease(KeyEvent.VK_ENTER);
+//        StringSelection s = new StringSelection("C:\\Users\\prana\\Downloads\\fruits.jpg");
+//        // Clipboard copy
+//        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(s,null);
+//        //identify element and click
+//        driver.findElement(By.xpath("//div[contains(text(),'Browse')]")).click();
+//        // Robot object creation
+//        Robot r = new Robot();
+//        //pressing enter
+//        r.keyPress(KeyEvent.VK_ENTER);
+//        //releasing enter
+//        r.keyRelease(KeyEvent.VK_ENTER);
+//        //pressing ctrl+v
+//        r.keyPress(KeyEvent.VK_CONTROL);
+//        r.keyPress(KeyEvent.VK_V);
+//        //releasing ctrl+v
+//        r.keyRelease(KeyEvent.VK_CONTROL);
+//        r.keyRelease(KeyEvent.VK_V);
+//        //pressing enter
+//        r.keyPress(KeyEvent.VK_ENTER);
+//        //releasing enter
+//        r.keyRelease(KeyEvent.VK_ENTER);
+        WebElement Browsefile=  driver.findElement(By.xpath("//div[contains(text(),'Browse')]"));
+        String filePath = "C:\\Users\\prana\\Desktop\\Intellij Projects\\PhonoLogixAutomation\\src\\test\\java\\File\\fruits.jpg";
+        File file = new File(filePath);
+        String absoluteFilePath = file.getAbsolutePath();
+        Browsefile.click();
+        //Browsefile.sendKeys(absoluteFilePath);
+        ((JavascriptExecutor) driver).executeScript("window.scrollTo(0,document.body.scrollHeight)");
+
         Thread.sleep(5000);
         WebElement ClickSubmit = driver.findElement(By.xpath("//button[contains(text(),'Submit')]"));
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", ClickSubmit);
-
-
-
         ClickSubmit.click();
 
 
@@ -192,95 +189,67 @@ Thread.sleep(3000);
         // element.click();
         //FileUpload.sendKeys("C:\\Users\\prana\\Desktop\\Intellij Projects\\PhonoLogixAutomation\\src\\test\\java\\File\\fruits.jpg");
     }
+    public void MediaManagerNextButton() throws InterruptedException {
+        Thread.sleep(2000);
+
+        ((JavascriptExecutor) driver).executeScript("window.scrollTo(0,document.body.scrollHeight)");
+        WebElement NextButton=driver.findElement(By.xpath("//button[contains(text(),'Next')]"));
+        Actions action = new Actions(driver);
+                action.moveToElement(NextButton).click().perform();
+        Thread.sleep(2000);
+        ((JavascriptExecutor) driver).executeScript("window.scrollTo(document.body.scrollHeight, 0)");
+
+    }
+
+    public void MediaManagerPreviousButton() throws InterruptedException {
+        Thread.sleep(2000);
+        ((JavascriptExecutor) driver).executeScript("window.scrollTo(0,document.body.scrollHeight)");
+        WebElement NextButton=driver.findElement(By.xpath("//button[contains(text(),'Previous')]"));
+        Actions action = new Actions(driver);
+        action.moveToElement(NextButton).click().perform();
+        Thread.sleep(2000);
+        ((JavascriptExecutor) driver).executeScript("window.scrollTo(document.body.scrollHeight, 0)");
+
+    }
+    public void HandleMedia() throws InterruptedException {
+        ((JavascriptExecutor) driver).executeScript("window.scrollTo(document.body.scrollHeight, 0)");
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//body/div[@id='root']/div[2]/div[2]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/*[1]")));
+        WebElement ClickPreviewIcon = driver.findElement(By.xpath("//body/div[@id='root']/div[2]/div[2]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/*[1]"));
+        ClickPreviewIcon.click();
+        driver.findElement(By.xpath("//button[contains(text(),'View in Full Screen')]")).click();
+        Thread.sleep(3000);
+        driver.findElement(By.xpath("//button[contains(text(),'Close')]")).click();
+    }
+    public void ClickEditMediaIcon() throws InterruptedException {
+        WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(20));
+        wait1.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//body/div[@id='root']/div[2]/div[2]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/*[1]")));
+        WebElement ClickEditIcon = driver.findElement(By.xpath("//body/div[@id='root']/div[2]/div[2]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/*[1]"));
+        ClickEditIcon.click();
+
+        WebElement EnterTitle = driver.findElement(By.xpath("//input[@placeholder='Enter title here']"));
+        EnterTitle.clear();
+        EnterTitle.sendKeys("Fruits Image");
+        Thread.sleep(3000);
+        //Thread.sleep(5000);
+        WebElement ClickSubmit = driver.findElement(By.xpath("//button[contains(text(),'Submit')]"));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", ClickSubmit);
+        ClickSubmit.click();
+    }
+    public void ClickToSeeUsuageOfMedia() throws InterruptedException {
+        WebDriverWait wait2 = new WebDriverWait(driver, Duration.ofSeconds(20));
+        wait2.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//body/div[@id='root']/div[2]/div[2]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[2]/*[1]")));
+        WebElement ClickIcon = driver.findElement(By.xpath("//body/div[@id='root']/div[2]/div[2]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[2]/*[1]"));
+        ClickIcon.click();
+        Thread.sleep(2000);
+        driver.navigate().back();
+    }
+
+    }
 
 
-}
 
 
 
 
-
-
-
-
-    //super(driver);
-//    public void ValidateTransactionPage() throws InterruptedException {
-//        //VALIDATE LOGIN TEXT ON PAGE
-//        Thread.sleep(4000);
-//        Assert.assertTrue(driver.findElement(By.xpath("//h3[contains(text(),'Transactions')]")).isDisplayed());
-//        System.out.println("**********"+driver.findElement(By.xpath("//h3[contains(text(),'Transactions')]")).isDisplayed()+"**********");
-//    }
-//    public void SearchTransactionrecords()
-//    {
-//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-//        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='filter-input-focus']")));
-//        WebElement SearchTransactionrecord = driver.findElement(By.xpath("//input[@id='filter-input-focus']"));
-//        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", SearchTransactionrecord);
-//        SearchTransactionrecord.sendKeys("Sandeep");
-//
-//        //((JavascriptExecutor) driver).executeScript("arguments[0].click();", SearchTransactionrecord);
-//
-//    }
-//    public void ValidateTransactionRecordsPage() throws InterruptedException {
-//        Thread.sleep(4000);
-//        Assert.assertTrue(driver.findElement(By.xpath("//td[contains(text(),'pay_NHF47yKSDuxgWZ')]")).isDisplayed());
-//        System.out.println("**********"+driver.findElement(By.xpath("//td[contains(text(),'pay_NHF47yKSDuxgWZ')]")).isDisplayed()+"**********");
-//
-//    }
-//    public void ClickOnTransactionpageBreadCrumbs()
-//    {
-//
-//        WebDriverWait Wait = new WebDriverWait(driver,Duration.ofSeconds(20));
-//        Wait.until((ExpectedConditions.visibilityOfElementLocated((By.linkText("5")))));
-//        WebElement TraPageBreadCrumbs_Link = driver.findElement(By.linkText("5"));
-//        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", TraPageBreadCrumbs_Link);
-//        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", TraPageBreadCrumbs_Link);
-//
-//    }
-//
-//    public void ValidateTRanSearchPageBreadCrumbsPage() throws InterruptedException {
-//        Thread.sleep(4000);
-//        Assert.assertTrue(driver.findElement(By.xpath("//h3[contains(text(),'Transactions')]")).isDisplayed());
-//
-//        System.out.println("**********" + driver.findElement(By.xpath("//h3[contains(text(),'Transactions')]")).isDisplayed() + "**********");
-//        Thread.sleep(2000);
-//
-//    }
-//    public void GOPreviousPage() throws InterruptedException {
-//
-//        Thread.sleep(2000);
-//       ((JavascriptExecutor) driver).executeScript("window.scrollTo(document.body.scrollHeight, 0)");
-//        WebElement GoBackTrPage = driver.findElement(By.linkText("1"));
-//        GoBackTrPage.click();
-//       // JavascriptExecutor js = (JavascriptExecutor)driver;
-//        //js.executeScript("arguments[0].scrollIntoView();", driver.findElement(By.xpath("//h3[contains(text(),'Transactions')])")));
-//driver.navigate().back();
-//
-//
-////        WebElement TRScrollUP = driver.findElement(By.xpath("//h3[contains(text(),'Transactions')])"));
-////
-//////TRScrollUP.isDisplayed();
-//
-//
-//    }
-//    public void VerifyTransactionListScrollVertical() throws InterruptedException {
-//
-//        Thread.sleep(4000);
-//        WebElement TransactionMenu_Link = driver.findElement(By.xpath("//a[@href='/transactions']"));
-//        TransactionMenu_Link.click();
-//        //Thread.sleep(4000);
-//
-//        ((JavascriptExecutor) driver).executeScript("document.querySelector(\"#root > div.c-app.c-default-layout > div.c-wrapper > div > main > div > div > div > div > div.sc-aXZVg.dKvPpX > div > div.table-responsive\").scrollTop=300");
-//    }
-//
-//    public void VerifyTransactionListScrollHorizantal() throws InterruptedException {
-//        Thread.sleep(4000);
-//
-//        ((JavascriptExecutor) driver).executeScript("document.querySelector(\"#root > div.c-app.c-default-layout > div.c-wrapper > div > main > div > div > div > div > div.sc-aXZVg.dKvPpX > div > div.table-responsive\").scrollLeft=300");
-//
-//
-//    }
-//
-//
-//
 

@@ -1,5 +1,7 @@
 package stepdefinitions;
 
+import CommonUtils.ScreenRecorderUtil;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pageobjectclasses.PHBrowserConfig;
@@ -11,7 +13,8 @@ public class PHInvoices extends PHBrowserConfig {
     PHInvoicesMenuPage ObjPHInMPage = new PHInvoicesMenuPage(driverThread.get());
 
     @When("Admin clicks on Invoices menu")
-    public void adminClicksOnClientMenu() {
+    public void adminClicksOnClientMenu() throws Exception {
+        ScreenRecorderUtil.startRecord("INVOICES MENU");
         ObjPHInMPage.ClickInvoicesMenu();
         System.out.println("ADMIN CLICK ON INVOICES MENU");
     }
@@ -48,6 +51,32 @@ public class PHInvoices extends PHBrowserConfig {
         ObjPHInMPage.ValidateInvoicePageBreadCrumbsPage();
         System.out.println("ADMIN CAN SEE DATA ON PRTICULAR INVOICE PAGE ");
 
+    }
+
+    @When("Admin Enters Search Keywords inside Invoices")
+    public void adminEntersSearchKeywordsInsideInvoices() throws InterruptedException {
+ObjPHInMPage.SearchInvoicesRecord();
+        System.out.println("ADMIN ENTERS SEARCH KEYWORDS INSIDE INVOICES");
+
+    }
+
+    @Then("Admin Can See Searched Results In Invoices List")
+    public void adminCanSeeSearchedResultsInInvoicesList() throws Exception {
+        System.out.println("ADMIN CAN SEE SEARCHED RESULTS IN INVOICES LIST");
+        ScreenRecorderUtil.stopRecord();
+    }
+
+    @And("Admin Can Scroll Horizantal Inside Invoice table")
+    public void adminCanScrollHorizantalInsideInvoiceTable() throws InterruptedException {
+        ObjPHInMPage.ScrollHorizantalInsideInvoicetable();
+        System.out.println("ADMIN CAN SCROLL HORIZANTAL INSIDE INVOICE TABLE");
+
+    }
+
+    @And("Admin Can Scroll vertical Inside Invoice table")
+    public void adminCanScrollVerticalInsideInvoiceTable() throws InterruptedException {
+        ObjPHInMPage.ScrollverticalInsideInvoicetable();
+        System.out.println("ADMIN CAN SCROLL VERTICAL INSIDE INVOICE TABLE");
     }
 }
 

@@ -54,7 +54,7 @@ public class EmailHTMLReport {
         try {
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress(from));
-            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse("kanchan1794@gmail.com")); // Recipient email
+            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse("aparnathombare02@gmail.com")); // Recipient email
             message.setSubject("Cucumber Test Report");
 
             // Create a multipart message

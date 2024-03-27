@@ -3,10 +3,7 @@ package pageobjectclasses;
 //import io.cucumber.messages.types.Duration;
 
 import junit.framework.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -84,9 +81,9 @@ public class PHPaymentLinkMenuPage {
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 
         WebElement Enter_Fullname = driver.findElement(By.xpath("//input[@placeholder='Enter full name']"));
-      Enter_Fullname.sendKeys("Rahul Sharma");
+        Enter_Fullname.sendKeys("Rahul Sharma");
         //  ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", Enter_Fullname);
-       Thread.sleep(2000);
+        Thread.sleep(2000);
         WebElement Enter_EmailAddress = driver.findElement(By.xpath("//input[@placeholder='Enter email address']"));
         Enter_EmailAddress.sendKeys("Rahul@gmail.com");
         Thread.sleep(2000);
@@ -111,6 +108,8 @@ public class PHPaymentLinkMenuPage {
         WebElement Click_CreateLink = driver.findElement(By.xpath("//button[contains(text(),'Create Link')]"));
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", Click_CreateLink);
         ((JavascriptExecutor) driver).executeScript("arguments[0].click();", Click_CreateLink);
+   Thread.sleep(2000);
+   driver.navigate().back();
     }
 
     public void ValidateCreatePaymentLinkPage() throws InterruptedException {
@@ -120,4 +119,25 @@ public class PHPaymentLinkMenuPage {
     System.out.println("ADMIN IS ON THE CREATE PAYMENT LINK PAGE");
     }
 
+    public void SearchPaymentLinkRecord() throws InterruptedException {
+        Thread.sleep(2000);
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='filter-input-focus']")));
+        WebElement SearchPlanRecord_List = driver.findElement(By.xpath("//input[@id='filter-input-focus']"));
+        SearchPlanRecord_List.sendKeys("https://rzp.io/i/kK3JlI4");
+
+        Thread.sleep(2000);
+        // sending Ctrl+a by Keys.Chord()
+        String s = Keys.chord(Keys.CONTROL, "a");
+        SearchPlanRecord_List.sendKeys(s);
+        // sending DELETE key
+        SearchPlanRecord_List.sendKeys(Keys.DELETE);
+
+        Thread.sleep(2000);
+
+
     }
+
+
+}
