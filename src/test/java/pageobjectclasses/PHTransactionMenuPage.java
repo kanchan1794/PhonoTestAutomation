@@ -83,74 +83,91 @@ public class PHTransactionMenuPage extends PHBrowserConfig{
     }
     public void ClickOnTransactionpageBreadCrumbs() throws InterruptedException {
 
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        wait.until((ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(text(),'3')]"))));
+        WebElement TransactionPage_link = driver.findElement(By.xpath("//a[contains(text(),'3')]"));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", TransactionPage_link);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", TransactionPage_link);
+        Thread.sleep(2000);
 
-Thread.sleep(2000);
-        // Replace "tableLocator" with your table locator
-        WebElement table = driver.findElement(By.xpath("//*[@id=\"root\"]/div[2]/div[2]/div/main/div/div/div/div/div/div/div[1]"));
-
-        // Replace "scrollAmount" with the amount you want to scroll down
-        int scrollAmount = 300; // Example scroll amount
-
-        // Using JavaScriptExecutor to scroll down inside the table
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].scrollTop += " + scrollAmount + ";", table);
 
-        WebDriverWait Wait = new WebDriverWait(driver,Duration.ofSeconds(30));
-        Wait.until((ExpectedConditions.visibilityOfElementLocated((By.linkText("5")))));
-        WebElement TraPageBreadCrumbs_Link = driver.findElement(By.linkText("5"));
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", TraPageBreadCrumbs_Link);
-        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", TraPageBreadCrumbs_Link);
-Thread.sleep(3000);
-        ((JavascriptExecutor) driver).executeScript("window.scrollTo(document.body.scrollHeight, 0)");
-   Thread.sleep(3000);
-        ((JavascriptExecutor) driver).executeScript("window.scrollTo(0,document.body.scrollHeight)");
-
+        // Scroll up by a certain amount in each iteration of the loop
+        for (int i = 0; i < 10; i++) { // Adjust the loop condition as needed
+            // Execute JavaScript to scroll UP
+            js.executeScript("window.scrollBy(0, -250);"); // Adjust the scroll amount as needed
+            // Add a delay to give time for the page to scroll
+            try {
+                Thread.sleep(500); // Adjust the delay time as needed
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public void ValidateTRanSearchPageBreadCrumbsPage() throws InterruptedException {
-        Thread.sleep(4000);
         Assert.assertTrue(driver.findElement(By.xpath("//h3[contains(text(),'Transactions')]")).isDisplayed());
-
         System.out.println("**********" + driver.findElement(By.xpath("//h3[contains(text(),'Transactions')]")).isDisplayed() + "**********");
         Thread.sleep(2000);
 
-        WebDriverWait Wait = new WebDriverWait(driver,Duration.ofSeconds(20));
-        Wait.until((ExpectedConditions.visibilityOfElementLocated((By.linkText("1")))));
-        WebElement PreviousPage_Link = driver.findElement(By.linkText("1"));
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", PreviousPage_Link);
-        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", PreviousPage_Link);
-Thread.sleep(3000);
-        ((JavascriptExecutor) driver).executeScript("window.scrollTo(document.body.scrollHeight, 0)");
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+
+        // Scroll up by a certain amount in each iteration of the loop
+        for (int i = 0; i < 10; i++) { // Adjust the loop condition as needed
+            // Execute JavaScript to scroll up
+            js.executeScript("window.scrollBy(0, -250);"); // Adjust the scroll amount as needed
+            // Add a delay to give time for the page to scroll
+            try {
+                Thread.sleep(500); // Adjust the delay time as needed
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+        WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(20));
+        wait.until((ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(text(),'1')]"))));
+        WebElement GObackPreviousPage= driver.findElement(By.xpath("//a[contains(text(),'1')]"));
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true);", GObackPreviousPage);
+        ((JavascriptExecutor)driver).executeScript("arguments[0].click();", GObackPreviousPage);
 
 
     }
-    public void GOPreviousPage() throws InterruptedException {
+
+    public void VerifyTransactionListScrollVertical() throws InterruptedException {
+
+        JavascriptExecutor jsc = (JavascriptExecutor) driver;
+        // Scroll up by a certain amount in each iteration of the loop
+        for (int i = 0; i < 10; i++) { // Adjust the loop condition as needed
+            // Execute JavaScript to scroll up
+            jsc.executeScript("window.scrollBy(0, -250);"); // Adjust the scroll amount as needed
+            // Add a delay to give time for the page to scroll
+            try {
+                Thread.sleep(500); // Adjust the delay time as needed
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
 
         Thread.sleep(2000);
-       ((JavascriptExecutor) driver).executeScript("window.scrollTo(document.body.scrollHeight, 0)");
-        WebElement GoBackTrPage = driver.findElement(By.linkText("1"));
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", GoBackTrPage);
-        GoBackTrPage.click();
-       // JavascriptExecutor js = (JavascriptExecutor)driver;
-        //js.executeScript("arguments[0].scrollIntoView();", driver.findElement(By.xpath("//h3[contains(text(),'Transactions')])")));
-//driver.navigate().back();
+        JavascriptExecutor js = (JavascriptExecutor) driver;
 
+        // Get the height of the page
+        Long pageHeight = (Long) js.executeScript("return document.body.scrollHeight;");
 
-//        WebElement TRScrollUP = driver.findElement(By.xpath("//h3[contains(text(),'Transactions')])"));
-//
-////TRScrollUP.isDisplayed();
+        // Calculate the middle position of the page
+        int middlePosition = pageHeight.intValue() / 2;
 
+        // Scroll to the middle of the page
+        js.executeScript("window.scrollTo(0, " + middlePosition + ");");
 
-    }
-    public void VerifyTransactionListScrollVertical() throws InterruptedException {
 
         WebElement table = driver.findElement(By.xpath("//*[@id=\"root\"]/div[2]/div[2]/div/main/div/div/div/div/div/div/div[1]"));
 
         // Create JavascriptExecutor object
-        JavascriptExecutor js = (JavascriptExecutor) driver;
+        JavascriptExecutor js1 = (JavascriptExecutor) driver;
 
         // Scroll down inside the table by 250 pixels
-        js.executeScript("arguments[0].scrollTop += 300;", table);
+        js1.executeScript("arguments[0].scrollTop += 300;", table);
 
         // Wait for a brief moment (optional)
         try {
@@ -160,15 +177,8 @@ Thread.sleep(3000);
         }
 
         // Scroll up inside the table by 250 pixels
-        js.executeScript("arguments[0].scrollTop -= 300;", table);
+        js1.executeScript("arguments[0].scrollTop -= 300;", table);
 
-
-        //        Thread.sleep(4000);
-//        WebElement TransactionMenu_Link = driver.findElement(By.xpath("//a[@href='/transactions']"));
-//        TransactionMenu_Link.click();
-//        //Thread.sleep(4000);
-//
-//        ((JavascriptExecutor) driver).executeScript("document.querySelector(\"#root > div.c-app.c-default-layout > div.c-wrapper > div > main > div > div > div > div > div.sc-aXZVg.dKvPpX > div > div.table-responsive\").scrollTop=300");
     }
 
     public void VerifyTransactionListScrollHorizantal() throws InterruptedException {
@@ -192,11 +202,6 @@ Thread.sleep(3000);
         // Scroll left by setting scrollLeft back to 0
         js.executeScript("arguments[0].scrollLeft = 0;", table);
 
-
-
-        //        Thread.sleep(4000);
-//
-//        ((JavascriptExecutor) driver).executeScript("document.querySelector(\"#root > div.c-app.c-default-layout > div.c-wrapper > div > main > div > div > div > div > div.sc-aXZVg.dKvPpX > div > div.table-responsive\").scrollLeft=300");
 
 
     }

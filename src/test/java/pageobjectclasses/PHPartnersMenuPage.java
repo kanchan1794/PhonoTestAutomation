@@ -181,8 +181,12 @@ driver.findElement(By.xpath("//span[contains(text(),'×')]")).click();
 
     public void VerifyPartnersListScrollVertical() throws InterruptedException {
         Thread.sleep(4000);
-        WebElement ScrollMiddlePartner = driver.findElement(By.xpath("//div[contains(text(),'Partner 1')]"));
-
+        WebElement Scrollvertical = driver.findElement(By.xpath("//body/div[@id='root']/div[2]/div[2]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]"));
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollTop += 250", Scrollvertical);
+        Thread.sleep(2000);
+        JavascriptExecutor js1 = (JavascriptExecutor) driver;
+        js1.executeScript("arguments[0].scrollTop -= 250", Scrollvertical);
 
         //        JavascriptExecutor j = (JavascriptExecutor)driver;
 //        j.executeScript ("arguments[0].scrollIntoView({block: 'center', inline: 'nearest'})", ScrollMiddlePartner);
@@ -191,9 +195,17 @@ driver.findElement(By.xpath("//span[contains(text(),'×')]")).click();
     }
 
     public void VerifyPartnersListScrollHorizantal() throws InterruptedException {
-        Thread.sleep(4000);
 
-        ((JavascriptExecutor) driver).executeScript("document.querySelector(\"#root > div.c-app.c-default-layout > div.c-wrapper > div > main > div > div > div > div > div.sc-aXZVg.dKvPpX > div > div.table-responsive\").scrollLeft=300");
+        Thread.sleep(4000);
+        WebElement Scrollhorizantal = driver.findElement(By.xpath("//body/div[@id='root']/div[2]/div[2]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]"));
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollLeft += 300", Scrollhorizantal);
+        Thread.sleep(2000);
+        JavascriptExecutor js1 = (JavascriptExecutor) driver;
+        js1.executeScript("arguments[0].scrollTop -= 300", Scrollhorizantal);
+        //        Thread.sleep(4000);
+//
+//        ((JavascriptExecutor) driver).executeScript("document.querySelector(\"#root > div.c-app.c-default-layout > div.c-wrapper > div > main > div > div > div > div > div.sc-aXZVg.dKvPpX > div > div.table-responsive\").scrollLeft=300");
 
 
     }

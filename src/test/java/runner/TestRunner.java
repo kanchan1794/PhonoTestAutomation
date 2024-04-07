@@ -30,7 +30,7 @@ import static org.monte.media.VideoFormatKeys.*;
 
         ///---------------------TILL THE TIME EXECUTION-------------------///
 		//THERAPIST MENU
-		tags = "@Login or @TherapistMenu or @TherapistListSubMenu or @TherapistShowCredentials or  @TherapistViewDetails or @PageBreadCrumbs or @TherapistListTableScrollDown "
+		//tags = "@Login or @TherapistMenu or @TherapistListSubMenu or @TherapistShowCredentials or  @TherapistViewDetails or @PageBreadCrumbs or @TherapistListTableScrollDown "
 		//PARTNERS MENU
 		//tags ="@Login or @PartnersMenu or   @PartnersListSubMenu or   @PartnersShowCredentials or   @PartnersViewDetails or   @PartnersageBreadCrumbs or @PartnersListTableScrollDown"
 		//CLIENTS MENU
@@ -40,7 +40,7 @@ import static org.monte.media.VideoFormatKeys.*;
        //PLAN MENU
 		//tags = "@Login or @PlanMenu or @PlanListSubMenu or @PlanEditDetails or @AddPlanDetails or @DeletePlan"
 		//TRANSACTION MENU
-		//tags ="@Login or @TransactionMenu or   @TransactionPageBreadCrumbs or   @TransactionListTableScrollDown"
+		tags ="@Login or @TransactionMenu or   @TransactionPageBreadCrumbs or   @TransactionListTableScrollDown"
         //PAYMENT_LINK MENU
 		//tags="@Login or   @PaymentLinkMenu or   @PaymentLinkListSubmenu or @PaymentLinkListScrollTOP-Bottom or @PaymentLinkCreateSubMenu "
 		//INVOICES MENU
