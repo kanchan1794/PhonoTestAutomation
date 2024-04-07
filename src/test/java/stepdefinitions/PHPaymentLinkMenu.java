@@ -13,7 +13,7 @@ public class PHPaymentLinkMenu extends PHBrowserConfig {
 
     @When("Admin clicks on PaymentLink menu")
     public void adminClicksOnTransactionMenu() throws Exception {
-        ScreenRecorderUtil.startRecord("PAYMENTLINK MENU-ADMIN DASHBOARD");
+       // ScreenRecorderUtil.startRecord("PAYMENTLINK MENU-ADMIN DASHBOARD");
         ObjPHPLMPage.ViewPaymentLinkMenu();
         System.out.println("ADMIN CAN CLICK ON PaymentLink MENU");
     }

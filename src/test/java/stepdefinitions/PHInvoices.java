@@ -14,7 +14,7 @@ public class PHInvoices extends PHBrowserConfig {
 
     @When("Admin clicks on Invoices menu")
     public void adminClicksOnClientMenu() throws Exception {
-        ScreenRecorderUtil.startRecord("INVOICES MENU");
+        //ScreenRecorderUtil.startRecord("INVOICES MENU");
         ObjPHInMPage.ClickInvoicesMenu();
         System.out.println("ADMIN CLICK ON INVOICES MENU");
     }
@@ -63,7 +63,7 @@ ObjPHInMPage.SearchInvoicesRecord();
     @Then("Admin Can See Searched Results In Invoices List")
     public void adminCanSeeSearchedResultsInInvoicesList() throws Exception {
         System.out.println("ADMIN CAN SEE SEARCHED RESULTS IN INVOICES LIST");
-        ScreenRecorderUtil.stopRecord();
+        //ScreenRecorderUtil.stopRecord();
     }
 
     @And("Admin Can Scroll Horizantal Inside Invoice table")

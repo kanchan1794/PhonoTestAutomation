@@ -182,10 +182,12 @@ driver.findElement(By.xpath("//span[contains(text(),'×')]")).click();
     public void VerifyPartnersListScrollVertical() throws InterruptedException {
         Thread.sleep(4000);
         WebElement ScrollMiddlePartner = driver.findElement(By.xpath("//div[contains(text(),'Partner 1')]"));
-        JavascriptExecutor j = (JavascriptExecutor)driver;
-        j.executeScript ("arguments[0].scrollIntoView({block: 'center', inline: 'nearest'})", ScrollMiddlePartner);
-        Thread.sleep(4000);
-        ((JavascriptExecutor) driver).executeScript("document.querySelector(\"#root > div.c-app.c-default-layout > div.c-wrapper > div > main > div > div > div > div > div.sc-aXZVg.dKvPpX > div > div.table-responsive\").scrollTop=300");
+
+
+        //        JavascriptExecutor j = (JavascriptExecutor)driver;
+//        j.executeScript ("arguments[0].scrollIntoView({block: 'center', inline: 'nearest'})", ScrollMiddlePartner);
+//        Thread.sleep(4000);
+//        ((JavascriptExecutor) driver).executeScript("document.querySelector(\"#root > div.c-app.c-default-layout > div.c-wrapper > div > main > div > div > div > div > div.sc-aXZVg.dKvPpX > div > div.table-responsive\").scrollTop=300");
     }
 
     public void VerifyPartnersListScrollHorizantal() throws InterruptedException {
@@ -195,4 +197,49 @@ driver.findElement(By.xpath("//span[contains(text(),'×')]")).click();
 
 
     }
+
+    public void ClickPartnerAddSubMenu() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(@href,'/partners/add')]")));
+
+        WebElement PartnerAdd_Link = driver.findElement(By.xpath("//*[contains(@href,'/partners/add')]"));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", PartnerAdd_Link);
+//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+//        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(@href,'/partners/list')]")));
+
+        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", PartnerAdd_Link);
+
+
+    }
+
+    public void ValidatePartnersAddPage() throws InterruptedException {
+        Thread.sleep(4000);
+        Assert.assertTrue(driver.findElement(By.xpath("//li[contains(text(),'Add Partner')]")).isDisplayed());
+
+        System.out.println("**********" + driver.findElement(By.xpath("//li[contains(text(),'Add Partner')]")).isDisplayed() + "**********");
+    }
+
+
+
+    public void AddNewPartner() throws InterruptedException {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@placeholder='Enter Bonus on Purchase (%)']")));
+        WebElement EditBonusOnPurchase = driver.findElement(By.xpath("//input[@placeholder='Enter Bonus on Purchase (%)']"));
+        EditBonusOnPurchase.clear();
+        Thread.sleep(2000);
+        EditBonusOnPurchase.sendKeys("90");
+        System.out.println(EditBonusOnPurchase.getText());
+        ((JavascriptExecutor) driver).executeScript("window.scrollBy(0,document.body.scrollHeight)");
+        Thread.sleep(3000);
+        WebElement SubmitButton = driver.findElement(By.xpath("//button[contains(text(),'Submit')]"));
+        Thread.sleep(3000);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", SubmitButton);
+        SubmitButton.click();
+        //((JavascriptExecutor) driver).executeScript("arguments[0].click();", SubmitButton);
+        System.out.println("Saved");
+        Thread.sleep(2000);
+
+    }
+
+
 }

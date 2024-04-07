@@ -273,22 +273,11 @@ public class PHTherapistMenuPage extends PHBrowserConfig {
 
     public void ClickTherapistAddSubMenu() throws InterruptedException {
 
-//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-//        wait.until(ExpectedConditions.visibilityOfElementLocated(By.linkText("Add")));
-//
-//        WebElement TherapistAdd_Link = driver.findElement(By.linkText("Add"));
-//       ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", TherapistAdd_Link);
-//        wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-//        wait.until(ExpectedConditions.visibilityOfElementLocated(By.linkText("Add")));
-
-        Thread.sleep(5000);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.linkText("Add")));
         WebElement TherapistAdd_Link = driver.findElement(By.linkText("Add"));
-       ((JavascriptExecutor) driver).executeScript("arguments[0].click();", TherapistAdd_Link);
-
-
-
-
-
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", TherapistAdd_Link);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", TherapistAdd_Link);
     }
 
     public void AddNewTherapistDetails() throws InterruptedException {
@@ -296,42 +285,17 @@ public class PHTherapistMenuPage extends PHBrowserConfig {
 Thread.sleep(3000);
         WebElement AddTherapistName = driver.findElement(By.xpath("//input[@placeholder='Enter Name']"));
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", AddTherapistName);
-//        WebDriverWait THNamewait = new WebDriverWait(driver, Duration.ofSeconds(20));
-//        WebElement until = THNamewait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@placeholder='Enter Name']")));
         AddTherapistName.sendKeys("Rahul Arora"+Keys.TAB);
 System.out.println("ADD NEW NAME");
 
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,-document.body.scrollHeight)");
         WebElement AddTherapistSpecalities = driver.findElement(By.xpath("//body/div[@id='root']/div[2]/div[2]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]"));
-//        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", AddTherapistSpecalities);
-//        WebDriverWait ThSpecwait = new WebDriverWait(driver, Duration.ofSeconds(20));
-//        ThSpecwait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//body/div[@id='root']/div[2]/div[2]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]")));
-        //AddTherapistSpecalities.sendKeys(Keys.TAB);
-        //AddTherapistSpecalities.sendKeys(Keys.SPACE);
-//        Actions action=new Actions(driver);
-//        action.click(AddTherapistSpecalities);
-      //  AddTherapistSpecalities.sendKeys("Unclear Speech");
-
-//set the dropdown value to '' using javascript
         AddTherapistSpecalities.click();
         Thread.sleep(3000);
         js.executeScript("arguments[0].click();",driver.findElement(By.xpath("//*[contains(text(),'Delayed Speech')]")));
         Thread.sleep(3000);
-        //driver.findElement(By.xpath("//*[contains(text()='Delayed Speech')]")).click();
-//        WebElement AddTherapistSp_txtBox=driver.findElement(By.xpath("//body/div[@id='root']/div[2]/div[2]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]"));
-//        AddTherapistSp_txtBox.click();
-//        AddTherapistSp_txtBox.clear();
-//        AddTherapistSp_txtBox.sendKeys("Delayed Speech"+Keys.ENTER);
-
-//        AddTherapistSpecalities.sendKeys("//div[contains(text(),'Delayed Speech')]");
-//        js.executeScript("arguments[0].value='Unclear Speech'", AddTherapistSpecalities);
-
-       // driver.findElement(By.xpath("//*[contains(text()='Delayed Speech')]")).click();
         System.out.println("ADD NEW SPECALITIES");
-
-
-
         WebElement AddTherapistEmail = driver.findElement(By.xpath("//input[@placeholder='Enter Email']"));
         // ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", AddNewTherapistName);
         WebDriverWait THEmailwait = new WebDriverWait(driver, Duration.ofSeconds(20));
@@ -355,26 +319,8 @@ System.out.println("ADD NEW NAME");
         //SELECT DATE OF BIRTH
         js.executeScript("window.scrollBy(0,-document.body.scrollHeight)");
         WebElement AddTherapistDOB = driver.findElement(By.xpath("//body/div[@id='root']/div[2]/div[2]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[3]/div[1]/input[1]"));
-        // ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", AddNewTherapistName);
-//        WebDriverWait THDOBwait = new WebDriverWait(driver, Duration.ofSeconds(20));
-//        THDOBwait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//body/div[@id='root']/div[2]/div[2]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[3]/div[1]/input[1]")));
-        //Fill date as dd/mm/yyyy as 09/25/2013
-//        Thread.sleep(3000);
-AddTherapistDOB.sendKeys("09-02-2005");
-
-       //js.executeScript("arguments[0].value='09-02-2005'", AddTherapistDOB
-
-
-        Thread.sleep(3000);
-
-
-//
-//        js.executeScript("arguments[0].click();",driver.findElement(By.xpath("//input[@max='2005-12-02']")));
-//
-//        js.executeScript("arguments[0].value='09-02-2005'", AddTherapistDOB);
-//        Thread.sleep(3000);
-//        System.out.println(AddTherapistDOB);
-
+        AddTherapistDOB.sendKeys("09-02-2005");
+       Thread.sleep(3000);
         WebElement AddTherapistDOJ = driver.findElement(By.xpath("//body/div[@id='root']/div[2]/div[2]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[3]/div[1]/input[1]"));
         // ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", AddNewTherapistName);
         WebDriverWait THDOJwait = new WebDriverWait(driver, Duration.ofSeconds(20));

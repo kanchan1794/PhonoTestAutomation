@@ -44,21 +44,6 @@ public class PHInvoicesMenuPage {
     public void ClickOnViewInvoice() throws InterruptedException {
         Thread.sleep(2000);
         // Locate the menu bar element (replace 'your_menu_locator' with the actual locator of your menu bar)
-        WebElement InvoicesSroll = driver.findElement(By.xpath("//body/div[@id='root']/div[2]/div[1]/ul[1]/div[2]/div[1]"));
-
-        // Create Actions object
-        Actions actions = new Actions(driver);
-
-        // Perform a sequence of DOWN arrow key presses to scroll down (adjust the number of times based on your needs)
-        for (int i = 0; i < 2; i++) {
-            actions.sendKeys(InvoicesSroll, Keys.ARROW_DOWN).perform();
-            try {
-                Thread.sleep(1000);  // Add a delay to give the page time to react, adjust as needed
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//tbody/tr[1]/td[7]/div[1]/a[1]")));
         WebElement ViewInvoice_Link = driver.findElement(By.xpath("//tbody/tr[1]/td[7]/div[1]/a[1]"));
@@ -102,6 +87,7 @@ public class PHInvoicesMenuPage {
 
     public void SearchInvoicesRecord() throws InterruptedException {
         Thread.sleep(2000);
+        ((JavascriptExecutor) driver).executeScript("window.scrollTo(document.body.scrollHeight, 0)");
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='filter-input-focus']")));
@@ -143,6 +129,8 @@ public class PHInvoicesMenuPage {
     }
 
     public void ScrollHorizantalInsideInvoicetable() {
+        ((JavascriptExecutor) driver).executeScript("window.scrollTo(0,document.body.scrollHeight)");
+
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//body/div[@id='root']/div[2]/div[2]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]")));
 

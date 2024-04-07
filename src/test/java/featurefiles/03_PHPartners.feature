@@ -6,7 +6,6 @@ Scenario: Phonologix Partners Functionality
     When Admin clicks on Partners menu
     Then Admin can see partners List and Add Submenu
 
-
   @PartnersListSubMenu
   Scenario: Phonologix Partners Submenu List Functionality
     When Admin clicks on Partners List submenu
@@ -35,3 +34,9 @@ Scenario: Phonologix Partners Functionality
   Scenario: Phonologix Partners Submenu List Scroll Vertically Inside Table Functionality
     And Admin can scroll vertically inside the Partners list table
     And Admin can scroll horizantally inside the Partners list table
+
+  @PartnersAddSubMenu
+  Scenario: Phonologix Partners Submenu Add Functionality
+    When Admin clicks on partners add submenu
+    Then Admin can see new partners add form
+    And  Admin can add new partner details

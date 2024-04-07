@@ -14,7 +14,7 @@ public class PHBankTransferApproval extends PHBrowserConfig {
 
     @When("Admin clicks on Bank Tarnsfer Approval Menu")
     public void adminClicksOnBankTransferApprovalMenu() throws Exception {
-        ScreenRecorderUtil.startRecord("BANK TRANSFER APPROVAL MENU");
+        //ScreenRecorderUtil.startRecord("BANK TRANSFER APPROVAL MENU");
         ObjPHBTAMPage.ClickBankTransferApprovalMenu();
 
         System.out.println("ADMIN CLICK ON BANK TRANSFER APPROVAL MENU");
@@ -63,6 +63,6 @@ public class PHBankTransferApproval extends PHBrowserConfig {
         ObjPHBTAMPage.ScrollHorizantalInsideBTAMenutable();
         System.out.println("ADMIN CAN SCROLL HORIZANTALLY INSIDE THE BANK TRANSFER APPROVAL LIST TABLE");
 Thread.sleep(2000);
-        ScreenRecorderUtil.stopRecord();
+        //ScreenRecorderUtil.stopRecord();
     }
 }

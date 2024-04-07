@@ -28,28 +28,30 @@ public class PHLogsMenuPage extends PHBrowserConfig {
         ((JavascriptExecutor) driver).executeScript("arguments[0].click();", LogsmenuScroll_Link);
         Thread.sleep(3000);
         JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
-        jsExecutor.executeScript("window.scrollTo(0, document.body.scrollHeight/2);");
+        //jsExecutor.executeScript("window.scrollTo(0, document.body.scrollHeight/2);");
 
         Thread.sleep(2000);
         ((JavascriptExecutor) driver).executeScript("window.scrollTo(0,document.body.scrollHeight)");
         Thread.sleep(2000);
-        ((JavascriptExecutor) driver).executeScript("window.scrollTo(document.body.scrollHeight, 0)");
-        Thread.sleep(2000);
-        ((JavascriptExecutor) driver).executeScript("window.scrollTo(document.body.scrollHeight, 0)");
+//        ((JavascriptExecutor) driver).executeScript("window.scrollTo(document.body.scrollHeight, 0)");
+//        Thread.sleep(2000);
+//        ((JavascriptExecutor) driver).executeScript("window.scrollTo(document.body.scrollHeight, 0)");
     }
 
-    public void Logspagenavigation() {
+    public void Logspagenavigation() throws InterruptedException {
+
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         wait.until((ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(text(),'2')]"))));
         WebElement LogsPageNavigation_Click = driver.findElement(By.xpath("//a[contains(text(),'2')]"));
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", LogsPageNavigation_Click);
-
         ((JavascriptExecutor) driver).executeScript("arguments[0].click();", LogsPageNavigation_Click);
     }
 
     public void validdateLogsPageNavigation() throws InterruptedException {
         Thread.sleep(4000);
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.xpath("//h3[contains(text(),'Logs')]")));//h3[contains(text(),'Therapists')]);
+        ((JavascriptExecutor) driver).executeScript("window.scrollTo(document.body.scrollHeight, 0)");
+
+        //((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.xpath("//h3[contains(text(),'Logs')]")));//h3[contains(text(),'Therapists')]);
         Assert.assertTrue(driver.findElement(By.xpath("//h3[contains(text(),'Logs')]")).isDisplayed());
         System.out.println("**********" + driver.findElement(By.xpath("//h3[contains(text(),'Logs')]")).isDisplayed() + "**********");
         Thread.sleep(2000);

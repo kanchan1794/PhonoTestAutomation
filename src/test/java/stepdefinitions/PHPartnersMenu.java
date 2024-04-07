@@ -132,6 +132,26 @@ public class PHPartnersMenu extends PHBrowserConfig {
         ObjPHPMBPage.EditPartnersDetails();
         System.out.println("------ADMIN CAN CLICK ON SUBMIT BUTTON TO SAVE PARTNER DETAILS");
        //Thread.sleep(3000);
-        ScreenRecorderUtil.stopRecord();
+        //ScreenRecorderUtil.stopRecord();
+    }
+
+    @When("Admin clicks on partners add submenu")
+    public void adminClicksOnPartnersAddSubmenu() {
+        ObjPHPMBPage.ClickPartnerAddSubMenu();
+        System.out.println("------ADMIN CAN CLICK ON PARTNERS ADD SUBMENU");
+        
+    }
+
+    @Then("Admin can see new partners add form")
+    public void adminCanSeeNewPartnersAddForm() throws InterruptedException {
+        ObjPHPMBPage.ValidatePartnersAddPage();
+        System.out.println("------ADMIN CAN SEE NEW PARTNERS ADD FORM");
+        
+    }
+
+    @And("Admin can add new partner details")
+    public void adminCanAddNewPartnerDetails() throws InterruptedException {
+        ObjPHPMBPage.AddNewPartner();
+        System.out.println("------ADMIN CAN ADD NEW PARTNERS DETAILS");
     }
 }

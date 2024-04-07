@@ -6,12 +6,12 @@ Feature: Test Phonologix  Download  Menu Functionality
     When Admin clicks on Download menu
     Then Admin can see Process to download Session Report
 
+
   @DownloadSessionReport
   Scenario: Phonologix Download Session Report Functionality
-    When Admin Click on One of The Download Session Report Option
-    Then Admin Selects Client, therapist And Duration
-    And  Admin Click On Download Report Button
-
+    When Admin clicks on download session report
+    Then Admin can select required details to download the report
+     And Admin can download particular session report
 
 
 

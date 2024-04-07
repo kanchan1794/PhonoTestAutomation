@@ -44,6 +44,7 @@ public class PHMediaManagerMenu extends PHBrowserConfig {
 
     @When("Admin can enters value to search")
     public void adminCanEntersValueToSearch() throws InterruptedException {
+        Thread.sleep(2000);
         ObjPHMMMBPage.SearchDetails();
         System.out.println("ADMIN CAN ENTERS VALUE TO SEARCH");
         

@@ -78,13 +78,15 @@ Thread.sleep(3000);
         Actions actions = new Actions(driver);
         actions.moveToElement(SearchMedia);
         actions.click();
-        Thread.sleep(4000);
-        actions.sendKeys("Vehicles");
-        Thread.sleep(6000);
-        actions.sendKeys(Keys.ENTER);
-        Thread.sleep(5000);
-        actions.sendKeys(Keys.BACK_SPACE);
+        actions.sendKeys("vehicles");
+        actions.sendKeys(Keys.RETURN);
         actions.build().perform();
+        System.out.println(SearchMedia.getText());
+        Thread.sleep(5000);
+        String s = Keys.chord(Keys.CONTROL, "a");
+        SearchMedia.sendKeys(s);
+        // sending DELETE key
+        SearchMedia.sendKeys(Keys.DELETE);
 
 
     }
@@ -126,7 +128,7 @@ Thread.sleep(3000);
         Category_dropdown.click();
         Select Category = new Select(Category_dropdown);
         Category.selectByValue("Fruits");
-        Thread.sleep(3000);
+        Thread.sleep(2000);
         // drpCategory.selectByVisibleText("Fruits");
         //Thread.sleep(3000);
         WebElement EnterTitle = driver.findElement(By.xpath("//input[@placeholder='Enter title here']"));
@@ -134,41 +136,44 @@ Thread.sleep(3000);
         Thread.sleep(3000);
         WebElement EnterDescription = driver.findElement(By.tagName("textarea"));
         EnterDescription.sendKeys("Fruits Media File");
-        //-----*** WITH THE HELP OF ROBOT CLASS FILE UPLOAD------//
-        // file path passed as parameter to StringSelection
-
-//        StringSelection s = new StringSelection("C:\\Users\\prana\\Downloads\\fruits.jpg");
-//        // Clipboard copy
-//        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(s,null);
-//        //identify element and click
-//        driver.findElement(By.xpath("//div[contains(text(),'Browse')]")).click();
-//        // Robot object creation
-//        Robot r = new Robot();
-//        //pressing enter
-//        r.keyPress(KeyEvent.VK_ENTER);
-//        //releasing enter
-//        r.keyRelease(KeyEvent.VK_ENTER);
-//        //pressing ctrl+v
-//        r.keyPress(KeyEvent.VK_CONTROL);
-//        r.keyPress(KeyEvent.VK_V);
-//        //releasing ctrl+v
-//        r.keyRelease(KeyEvent.VK_CONTROL);
-//        r.keyRelease(KeyEvent.VK_V);
-//        //pressing enter
-//        r.keyPress(KeyEvent.VK_ENTER);
-//        //releasing enter
-//        r.keyRelease(KeyEvent.VK_ENTER);
         WebElement Browsefile=  driver.findElement(By.xpath("//div[contains(text(),'Browse')]"));
-        String filePath = "C:\\Users\\prana\\Desktop\\Intellij Projects\\PhonoLogixAutomation\\src\\test\\java\\File\\fruits.jpg";
-        File file = new File(filePath);
-        String absoluteFilePath = file.getAbsolutePath();
-        Browsefile.click();
-        //Browsefile.sendKeys(absoluteFilePath);
+Browsefile.click();
+       // driver.findElement(By.xpath("//body[1]/div[1]/div[1]/div[2]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[2]")).click();
+        Robot rb = new Robot();
+        rb.delay(2000);
+
+        StringSelection ss = new StringSelection("file:C:/Users/prana/File/fruits.jpg");
+        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
+
+// to paste the link & then to release the button
+        rb.keyPress(KeyEvent.VK_CONTROL);
+        rb.keyPress(KeyEvent.VK_V);
+        rb.delay(2000);
+
+        rb.keyRelease(KeyEvent.VK_CONTROL);
+        rb.keyRelease(KeyEvent.VK_V);
+        rb.delay(2000);
+
+        //Enter
+        rb.keyPress(KeyEvent.VK_ENTER);
+        rb.keyRelease(KeyEvent.VK_ENTER);
         ((JavascriptExecutor) driver).executeScript("window.scrollTo(0,document.body.scrollHeight)");
 
-        Thread.sleep(5000);
+
+        //        String filePath = "C:\\Users\\prana\\Desktop\\Intellij Projects\\PhonoLogixAutomation\\src\\test\\java\\File\\fruits.jpg";
+//Browsefile.click();
+//        Browsefile.sendKeys(filePath);
+//        //        File file = new File(filePath);
+////        String absoluteFilePath = file.getAbsolutePath();
+////        Browsefile.click();
+//        //Browsefile.sendKeys(absoluteFilePath);
+//        ((JavascriptExecutor) driver).executeScript("window.scrollTo(0,document.body.scrollHeight)");
+
+        Thread.sleep(4000);
+
+
         WebElement ClickSubmit = driver.findElement(By.xpath("//button[contains(text(),'Submit')]"));
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", ClickSubmit);
+       // ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", ClickSubmit);
         ClickSubmit.click();
 
 

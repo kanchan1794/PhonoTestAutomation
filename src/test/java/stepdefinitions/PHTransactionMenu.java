@@ -14,7 +14,7 @@ public class PHTransactionMenu extends PHBrowserConfig {
 
     @When("Admin clicks on Transaction menu")
     public void adminClicksOnTransactionMenu() throws Exception {
-        ScreenRecorderUtil.startRecord("TRANSACTION MENU-PHONOLOGIX ADMIN DASHBOARD");
+       // ScreenRecorderUtil.startRecord("TRANSACTION MENU-PHONOLOGIX ADMIN DASHBOARD");
         ObjPHTRMBPage.ViewTransactionMenu();
         System.out.println("ADMIN CAN CLICK ON TRANSACTION MENU");
     }
@@ -67,7 +67,7 @@ public class PHTransactionMenu extends PHBrowserConfig {
     public void adminCanScrollHorizantallyInsideTheTransactionListTable() throws Exception {
         ObjPHTRMBPage.VerifyTransactionListScrollHorizantal();
         System.out.println("ADMIN CAN SCROLL HORIZANTAL INSIDE TABLE--TRANSACTION");
-        ScreenRecorderUtil.stopRecord();
+        //ScreenRecorderUtil.stopRecord();
 
     }
 }

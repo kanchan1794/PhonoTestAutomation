@@ -11,13 +11,13 @@ public class PhonologixSendMail {
         // Your email configuration
         String from = "kanchan@clingmultisolutions.org";
         String password = "dtld ouyj rdzq lwek";// Use App Password for Gmail with 2FA
-        //String[] toEmails = {"akshay@clingmultisolutions.org", "jijokudilil@gmail.com"};
-        String[] toEmails = {"akshay@clingmultisolutions.org", "aryan@clingmultisolutions.org"};
-        //String to = "kanchan1794@gmail.com";
-        String subject = "Phonologix Test Report of Login, Therapist, Partner, leads, Plan, Transaction -Screenrecording";
+        String[] toEmails = {"akshay@clingmultisolutions.org", "jijokudilil@gmail.com"};
+       // String[] toEmails = {"akshay@clingmultisolutions.org", "aryan@clingmultisolutions.org"};
+       // String to = "rajnish.mishra@clingmultisolutions.org";
+        String subject = "Update on Automation Testing Progress for Phonologix";
 
 
-        //String[] ccEmails = {"cc1@example.com", "cc2@example.com"};
+        //String[] ccEmails = {"cc1@example.com", "cc2@example.com"};d
       String ccEmail = "rajnish.mishra@clingmultisolutions.org";
 
         // Email server properties
@@ -45,8 +45,8 @@ public class PhonologixSendMail {
             for (String toEmail : toEmails) {
                 message.addRecipient(Message.RecipientType.TO, new InternetAddress(toEmail));
 }
-           // message.setRecipient(Message.RecipientType.TO, new InternetAddress(to));
-
+// message.setRecipient(Message.RecipientType.TO, new InternetAddress(to));
+//
             message.setRecipients(Message.RecipientType.CC,
                     InternetAddress.parse(ccEmail));
 
@@ -57,18 +57,21 @@ public class PhonologixSendMail {
 
             // Create and attach the file to the email
             MimeBodyPart attachment1 = new MimeBodyPart();
-            attachment1.attachFile("C:\\Users\\prana\\Desktop\\Intellij Projects\\PhonoLogixAutomation\\Phonologix Test Cases Videos\\Admin Dashboard Login.mp4");
+            attachment1.attachFile("C:\\Users\\prana\\Desktop\\Intellij Projects\\PhonoLogixAutomation\\Phonologix Test Cases Videos\\PHONOLOGIX ADMIN DASHBOARD LOGIN.mp4");
             MimeBodyPart attachment2 = new MimeBodyPart();
-            attachment2.attachFile("C:\\Users\\prana\\Desktop\\Intellij Projects\\PhonoLogixAutomation\\Phonologix Test Cases Videos\\THERAPIST MENU ADMIN DASHBOARD.mp4");
+            attachment2.attachFile("C:\\Users\\prana\\Desktop\\Intellij Projects\\PhonoLogixAutomation\\Phonologix Test Cases Videos\\PHONOLOGIX ADMIN DASHBOARD LEADS MENU.mp4");
             MimeBodyPart attachment3 = new MimeBodyPart();
-            attachment3.attachFile("C:\\Users\\prana\\Desktop\\Intellij Projects\\PhonoLogixAutomation\\Phonologix Test Cases Videos\\PARTNER MENU-PHONOLOGIX ADMIN DASHBOARD.mp4");
+            attachment3.attachFile("C:\\Users\\prana\\Desktop\\Intellij Projects\\PhonoLogixAutomation\\Phonologix Test Cases Videos\\PHONOLOGIX ADMIN DASHBOARD THERAPIST MENU.mp4");
             MimeBodyPart attachment4 = new MimeBodyPart();
-            attachment4.attachFile("C:\\Users\\prana\\Desktop\\Intellij Projects\\PhonoLogixAutomation\\Phonologix Test Cases Videos\\LEADS MENU-PHONOLOGIX ADMIN DASHBOARD.mp4");
+            attachment4.attachFile("C:\\Users\\prana\\Desktop\\Intellij Projects\\PhonoLogixAutomation\\Phonologix Test Cases Videos\\PHONOLOGIX ADMIN DASHBOARD PARTNER MENU.mp4");
             MimeBodyPart attachment5 = new MimeBodyPart();
-            attachment5.attachFile("C:\\Users\\prana\\Desktop\\Intellij Projects\\PhonoLogixAutomation\\Phonologix Test Cases Videos\\PLAN MENU-Phonologix Admin Dashboard.mp4");
+            attachment5.attachFile("C:\\Users\\prana\\Desktop\\Intellij Projects\\PhonoLogixAutomation\\Phonologix Test Cases Videos\\PHONOLOGIX ADMIN DASHBOARD PLAN MENU.mp4");
             MimeBodyPart attachment6 = new MimeBodyPart();
-            attachment6.attachFile("C:\\Users\\prana\\Desktop\\Intellij Projects\\PhonoLogixAutomation\\Phonologix Test Cases Videos\\TRANSACTION MENU-PHONOLOGIX ADMIN DASHBOARD-.mp4");
-
+            attachment6.attachFile("C:\\Users\\prana\\Desktop\\Intellij Projects\\PhonoLogixAutomation\\Phonologix Test Cases Videos\\PHONOLOGIX ADMIN DASHBOARD TRANSACTION MENU.mp4");
+            MimeBodyPart attachment7 = new MimeBodyPart();
+            attachment7.attachFile("C:\\Users\\prana\\Desktop\\Intellij Projects\\PhonoLogixAutomation\\DashBoard.png");
+//            MimeBodyPart attachment8 = new MimeBodyPart();
+//            attachment8.attachFile("http://13.201.76.6/feature-overview.html");
 
 
             //attachmentBodyPart.attachFile("C:\\Users\\prana\\Desktop\\Intellij Projects\\PhonoLogixAutomation\\DashBoard.png");
@@ -79,6 +82,8 @@ public class PhonologixSendMail {
             multipart.addBodyPart(attachment4);
             multipart.addBodyPart(attachment5);
             multipart.addBodyPart(attachment6);
+            multipart.addBodyPart(attachment7);
+//            multipart.addBodyPart(attachment8);
             message.setContent(multipart);
             // Create the message part
             BodyPart messageBodyPart = new MimeBodyPart();
@@ -116,103 +121,29 @@ public class PhonologixSendMail {
 //                    "Also the same thing is happening with transaction menu");
 
 
-            messageBodyPart.setText("" +
-                    "" +
-                    "Login-Dashboard Functionality" +
+            messageBodyPart.setText(
                     "\n" +
-                    "Test case 1: Test Phonologix Login Functionality" +
-                    "-----Here phonologix admin should be able to in the dashboard login with valid credentials as well as admin shold be able to test positive functionality of\n" +
-                    "Selecting value from dropdown list\n" +
-                    "-----Navigating to the plan expiry report after clicking on plan expiry report\n" +
-                    "-----Clicking and on Slot Booked Report and navigating on slot booked report\n" + "-----Clicking on Slot Complete Report and navigating to the slot completed report\n" + "-----Clicking on Assessments Report and naviagting to the assessments report\n"
-            +
+                    "Hey Jijo,\n" +
                     "\n" +
-                    "Therpaist Module:\n" +
-                            "Test Case 1: Test Phonologix Therapist Menu Functionality\n" +
-                            "-----In This test case admin should be able to click on therapist menu and , admin should be able to see list and add submenu\n" +
-                            "Test Case 2: Test Phonologix Therapist Submenu List Functionality\n" +
-                            "-----In this when Admin clicks on List submenu then Admin should be able to see The details of list of therapist also here admin cn test search bar functionality by passing search keywords and so admin can see relevant search results \n" +
-                            "Test Case 3: Phonologix Therapist Show Credentials Functionality\n" +
-                            "-----In this Admin Clicks On Key Icon To View Therapist Credentials also  Admin Can Copy Therapist Credentials and verify Therapist Credentials AlertBox alert box\n" +
-                            "Test case 4: Phonologix View Therapist Functionality\n" +
-                            "-----In this when Admin Clicks On View Icon To View Therapist Details then admin can navigate to therapist details page\n" +
-                            "also Admin can also clicks on edit button to edit the therapist details and we can edit the therapist details\n" +
-                            "Test Case 5: Phonologix Page BreadCrumbs Functionality\n" +
-                            "-----here our test scripts test the functionality of page bread crumbs or page naviagtions like When Admin clicks on perticular page number from page bread crumbs then admin can see the data on perticular page\n" +
-                            "Test case 6: Phonologix Therapist Submenu List Scroll Vertically Inside Table Functionality\n" +
-                            "-----This test case test the functionality of scroll verticall and horizantal in side therapist  list table"
-           +
-                    "\n" + "\n" +
-                    "Partner module:\n" +
-                            "Test case 1: Phonologix Partners Functionality\n" +
-                            "-----here our test scripts check clicking operation on partner menu and displyaing the submenu list and add under partner menu </b>\n" +
-                            "Test case 2: Phonologix Partners Submenu List Functionality\n" +
-                            "-----in this first,  Admin should be able to click on Partners List and then Admin can see The details of list of Partners</b>\n" +
-                            "Secondly when  Admin Enters Search Keywords to see partners record\n" +
-                            "-----Then admin can see Relevant partners Search Results Generated\n" +
-                            "Test case 3: Phonologix Partners Show Credentials Functionality\n" +
-                            "-----this test case is to check working of view credentials functionality where so admin first Clicks On Key Icon To View Partners Credentials also here Admin Can Copy Partners Credentials next thing is Admin Can also verify Partners Credentials AlertBox\n" +
-                            "Test case 4: Phonologix View Partners Functionality\n" +
-                            "-----here main functionality is to click on view icon and then check the henceforth working so firstly Admin Clicks On View Icon To View Partners Details and then we can naviagated to partner details page\n" +
-                            "secondly When Admin clicks on edit button then he /she can edit the partners details\n" +
-                            "Test case 5:Phonologix Partners Page BreadCrumbs Functionality\n" +
-                            "-----here test scripts test working of page breadcrumbs/ page naviagation so when  Admin clicks on perticular Partners page breadcrumbs\n" +
-                            "Then admin can naviagtes to the perticular Partners page and can see the data\n" +
-                            "Test case 6: Phonologix Partners Submenu List Scroll Vertical and horizantal Inside Table Functionality\n" +
-                            "-----this test case test the functionality of scroll verticall and horizantal in side partner list table\n"
-
-+
+                    "Hope you're doing well!\n" +
                     "\n" +
-                    "Leads Module:\n" +
-                            "Test case 1: Clicking on Phonologix Lead Menu Functionality\n" +
-                            "-----This test case test positive flow of clicking on lead menu and displaying list and add submenus under lead menu\n" +
-                            "Test Case 2: Phonologix Lead Submenu List Functionality\n" +
-                            "-----here firstly When Admin clicks on Lead List submenu Then Admin can see The details of list of Leads\n" +
-                            "Secondly it test the working of search field by entering Search Keywords for Leads \n" +
-                            "and so Relevant Search Results For Leads Generated\n" +
-                            "also  test the functionality of dropdown list so when Admin select value from lead dropdown list Then admin can see relevant lead record\n" +
-                            "Test Case 3: Phonologix View Leads Details Functionality\n" +
-                            "-----this test case check the working of view leads option so admin click on view leads and navigated to lead details page\n" +
-                            "Test Case 4: Phonologix Edit Leads Details Functionality\n" +
-                            "-----here, we can test the positive flow of edit lead details and so when admin click on edit button then he/she can edit the lead details\n" +
-                            "Test Case 5: Phonologix Leads Page navigation Functionality\n" +
-                            "----this test case test the working of page bread crumbs functionality by clicking on page number from bottom side of the leads page\n" +
-                            "so When Admin click on leads perticular page number Then Admin can navigate to that leads page\n" +
-                            "\n" +
-
-                    "Plan Module\n" +
-                            "Test Case 1: Test Phonologix Plan Menu Functionality\n" +
-                            "-----here when admin click on Plan menu then, admin can see add and list submenu under the plan menu\n" +
-                            "Test Case 2: Phonologix Plan Submenu List Functionality\n" +
-                            "-----this test case test the features like clicking on list submenu and viewing the details of plans also it test the working of search functionality to search the plan record and clicking operation of view lan icons to see the plan details\n" +
-                            "Test Case 3: Phonologix Edit Plan Functionality\n" +
-                            "-----here admin can click on edit button to test the editing functionality to edit the plan details and see reflected changes\n" +
-                            "Test Case 4: Phonologix Add Plan Functionality\n" +
-                            "-----this test case is written to test the working of add submenu to add /create new plan details\n" +
-                            "when Admin Clicks on plan Add Submenu Then Admin can Add New plan details\n" +
-                            "Test Case 5: Phonologix Delete Plan Functionality\n" +
-                            "-----This test case check the working of delete button to remove / delete the perticular plan\n"
-+
-            ""
-                    + "\n" +
-                    "Transaction Module\n" +
-                    "Test Case 1: Test Phonologix Transaction Menu Functionality\n" +
-                    "-----here when admin click on transaction menu, then admin can see transaction details also this test case also check the working of search field and check wether search field generates the correct result or not\n" +
-                    "Test Case 2: Phonologix TransactionPage BreadCrumbs Functionality\n" +
-                    "-----This test case check working of page navigation like  When Admin clicks on perticular page breadcrumbs from transaction menu\n" +
-                    "Then admin can see the data on perticular page from transsaction menu\n" +
+                    "Just wanted to drop you a quick update on how things are going with our automation testing for Phonologix.\n" +
                     "\n" +
-                    "Test Case 3: Phonologix Transaction Submenu List Scroll Vertically Inside Table Functionality\n" +
-                    "-----here we can test working of horizantal and vertical scrolling inside transaction table\n" +
-            "\n" +
-
-
-                    "-----TOTAL NUMBER OF TEST CASES =26" + "\n" +
-
-                    "\n"+
-                    "Thanks & Regards," +
+                    "We've been hard at work designing and executing test cases for the admin module, covering all the important stuff like Login, Dashboard, Therapist Menu, Partner Menu, Leads Menu, Plan Menu, and Transaction Menu. Each of these menus does its own thing, so we've been thorough in making sure everything works smoothly.\n" +
                     "\n" +
-                    " Kanchan S Deshpande"
+                    "Our testing approach has focused on conducting happy path testing to ensure the robustness and reliability of the Phonologix across all its functionalities. We are pleased to report that our efforts have yielded positive results thus far.\n" +
+                    "\n" +
+                    "Furthermore, we have successfully generated comprehensive test reports for these functionalities. These reports provide detailed insights into the performance and functionality of the Phonologix admin dashboard during the automation testing process. We would be more than happy to share these reports with you via email for your review and analysis.\n" +
+                    "\n" +
+                    "you can find phonologix test report dashboard link here- http://13.201.76.6/feature-overview.html" +
+                    "\n" +
+                    "\n" +
+                    "To provide you with a clearer understanding of how automation testing operates in practice, we have also prepared GUI screen recordings of the executed test cases. These recordings offer visual demonstrations of the testing process, allowing for a more intuitive comprehension of our automation testing methodology and its outcomes.\n" +
+                    "\n" +
+                    "If you've got any questions or need more info, just give us a shout. We're here to help!\n" +
+                    "\n" +
+                    "Thank you for your attention, and we look forward to your feedback."
+
 
 
 

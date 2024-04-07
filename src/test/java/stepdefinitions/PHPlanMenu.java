@@ -12,7 +12,7 @@ public class PHPlanMenu extends PHBrowserConfig {
 
     @When("Admin clicks on Plan menu")
     public void adminClicksOnLeadMenu() throws Exception {
-        ScreenRecorderUtil.startRecord("Plan Menu");
+        //ScreenRecorderUtil.startRecord("Plan Menu");
         ObjPHPMBPage.ViewPlanMenu();
         System.out.println("ADMIN CLICK ON PLAN MENU");
     }
@@ -98,7 +98,7 @@ ObjPHPMBPage.EditPlanDetails();
     @Then("Admin Can Delete Plan Record")
     public void adminCanDeletePlanRecord() throws Exception {
         System.out.println("ADMIN CAN DELETE PLAN RECORD");
-        ScreenRecorderUtil.stopRecord();
+        //ScreenRecorderUtil.stopRecord();
     }
 
 }
