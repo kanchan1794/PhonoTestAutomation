@@ -124,6 +124,7 @@ public class PHLeadMenuPage extends PHBrowserConfig {
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.xpath("//label[contains(text(),'Partner Code')]")));
         //((JavascriptExecutor)driver).executeScript("window.scrollTo(0, document.body.scrollHeight/2)");
         EnterPartnerCode.click();
+        EnterPartnerCode.clear();
         EnterPartnerCode.sendKeys("001");
         Thread.sleep(2000);
         JavascriptExecutor js = (JavascriptExecutor) driver;

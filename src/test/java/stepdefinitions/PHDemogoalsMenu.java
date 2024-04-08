@@ -1,6 +1,5 @@
 package stepdefinitions;
 
-import CommonUtils.ScreenRecorderUtil;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -16,32 +15,21 @@ public class PHDemogoalsMenu extends PHBrowserConfig {
     PHDemoGoalsMenuPage ObjPHDGMBPage = new PHDemoGoalsMenuPage(driverThread.get());
 
     @When("Admin clicks on Demo Goals menu")
-    public void adminClicksOnDemoGoalsMenu() throws Exception {
-        ScreenRecorderUtil.startRecord("DEMO GOALS MENU - PHONOLOGIX ADMIN DASHBOARD");
+    public void adminClicksOnDemoGoalsMenu() throws InterruptedException {
         ObjPHDGMBPage.ClickDemoGoalsMenu();
         System.out.println("ADMIN CAN CLICK ON TUTORIALS MENU");
     }
 
 
     @Then("Admin can see Demo Goals Details")
-    public void adminCanSeeDemoGoalsDetails() {
+    public void adminCanSeeDemoGoalsDetails() throws InterruptedException{
+        ObjPHDGMBPage.ValidateDemoGoalspage();
         System.out.println("ADMIN CAN SEE DEMO GOALS DETAILS");
 
     }
-    @When("Admin enters value to search for Demo Goals record")
-    public void adminEntersValueToSearchForDemoGoalsRecord() throws InterruptedException {
-        ObjPHDGMBPage.SearchDemoGoalsRecord();
-        System.out.println("ADMIN CAN ENTERS VALUE TO SEARCH FOR DEMO GOALS RECORD");
-
-    }
-
-    @Then("Admin can see perticular Demo Goals test result")
-    public void adminCanSeePerticularDemoGoalsTestResult() {
-        System.out.println("ADMIN CAN SEE PERTICULAR DEMO GOALS TEST RECORD");
-    }
 
     @When("Admin First Select Category And Sub-Category value")
-    public void adminFirstSelectCategoryValue() throws InterruptedException {
+    public void adminFirstSelectCategoryValue() throws InterruptedException{
         ObjPHDGMBPage.SelectCategoryAndSubCategory();
         System.out.println("ADMIN CAN FIRST SELECT CATEGORY AND SUB-CATEGORY VALUE");
 
@@ -54,18 +42,40 @@ public class PHDemogoalsMenu extends PHBrowserConfig {
     }
 
     @When("Admin clicks on Delete button to delete perticular demo goal")
-    public void adminClicksOnDeleteButtonToDeletePerticularDemoGoal() {
+    public void adminClicksOnDeleteButtonToDeletePerticularDemoGoal() throws InterruptedException{
         ObjPHDGMBPage.DeletDemoGoals();
         System.out.println("ADMIN CLICKS ON DELETE BUTTON TO DELETE PERTICULAR DEMO GOALS");
 
     }
 
     @Then("Admin Can delete perticular demo goalm record")
-    public void adminCanDeletePerticularDemoGoalmRecord() throws Exception {
-        System.out.println("ADMIN CAN DELETE PERTICULAR DEMO GOAL RECORD");
-        Thread.sleep(2000);
-        ScreenRecorderUtil.stopRecord();
+    public void adminCanDeletePerticularDemoGoalmRecord() {
     }
 
+    @When("admin click on ADD button")
+    public void adminClickOnADDButton() throws InterruptedException{
+        ObjPHDGMBPage.ADD_demogaols();
+        System.out.println("admin click on ADD button");
 
+
+    }
+
+    @Then("admin can fill category & sub category details")
+    public void adminCanFillCategorySubCategoryDetails() throws InterruptedException{
+        ObjPHDGMBPage.admin_can_fill_details();
+        System.out.println("admin can fill category & sub category details");
+    }
+
+    @When("Admin enter search keyword")
+    public void adminEnterSearchKeyword() throws InterruptedException{
+        ObjPHDGMBPage.Admin_enter_search_keyword();
+        System.out.println("Admin enter search keyword");
+        
+    }
+
+    @Then("relevant search is generated")
+    public void relevantSearchIsGenerated() {
+        ObjPHDGMBPage.relevant_search_is_generated();
+        System.out.println("relevant search is generated");
+    }
 }

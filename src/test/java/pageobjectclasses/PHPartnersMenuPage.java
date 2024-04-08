@@ -199,13 +199,15 @@ driver.findElement(By.xpath("//span[contains(text(),'×')]")).click();
         Thread.sleep(4000);
         WebElement Scrollhorizantal = driver.findElement(By.xpath("//body/div[@id='root']/div[2]/div[2]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]"));
         JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollLeft -= 300", Scrollhorizantal);
+        try {
+            Thread.sleep(2000); // Wait for 2 seconds
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        // Scroll right inside the table
         js.executeScript("arguments[0].scrollLeft += 300", Scrollhorizantal);
-        Thread.sleep(2000);
-        JavascriptExecutor js1 = (JavascriptExecutor) driver;
-        js1.executeScript("arguments[0].scrollTop -= 300", Scrollhorizantal);
-        //        Thread.sleep(4000);
-//
-//        ((JavascriptExecutor) driver).executeScript("document.querySelector(\"#root > div.c-app.c-default-layout > div.c-wrapper > div > main > div > div > div > div > div.sc-aXZVg.dKvPpX > div > div.table-responsive\").scrollLeft=300");
 
 
     }

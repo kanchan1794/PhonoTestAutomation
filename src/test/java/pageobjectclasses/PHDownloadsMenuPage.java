@@ -62,6 +62,7 @@ public class PHDownloadsMenuPage extends PHBrowserConfig {
         actions.moveToElement(SelectClient);
         actions.click();
         actions.sendKeys("AAA");
+        actions.sendKeys(Keys.RETURN);
         actions.click();
         actions.build().perform();
 
@@ -72,7 +73,8 @@ public class PHDownloadsMenuPage extends PHBrowserConfig {
         actions1.moveToElement(SelectTherapist);
         actions1.click();
         actions1.sendKeys("Mayank Sahu");
-        actions1.click();
+        actions1.sendKeys(Keys.RETURN);
+        //actions1.click();
         Thread.sleep(2000);
         actions1.build().perform();
 

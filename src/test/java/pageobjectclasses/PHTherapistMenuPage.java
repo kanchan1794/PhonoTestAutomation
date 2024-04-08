@@ -104,6 +104,8 @@ public class PHTherapistMenuPage extends PHBrowserConfig {
         //PageBreadCrumbs_Link.sendKeys("Delayed Speech");
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", PageBreadCrumbs_Link);
         ((JavascriptExecutor) driver).executeScript("arguments[0].click();", PageBreadCrumbs_Link);
+        ((JavascriptExecutor) driver).executeScript("window.scrollTo(document.body.scrollHeight, 0)");
+Thread.sleep(2000);
 
     }
 
@@ -113,22 +115,44 @@ public class PHTherapistMenuPage extends PHBrowserConfig {
         Assert.assertTrue(driver.findElement(By.xpath("//h3[contains(text(),'Therapists')]")).isDisplayed());
 
         System.out.println("**********" + driver.findElement(By.xpath("//h3[contains(text(),'Therapists')]")).isDisplayed() + "**********");
-
+        WebElement PageBreadCrumbs_Link = driver.findElement(By.xpath("//a[contains(text(),'1')]"));
+        //PageBreadCrumbs_Link.sendKeys("Delayed Speech");
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", PageBreadCrumbs_Link);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", PageBreadCrumbs_Link);
+Thread.sleep(2000);
+        ((JavascriptExecutor) driver).executeScript("window.scrollTo(document.body.scrollHeight, 0)");
 
     }
 
     public void VerifyTherapistListScrollVertical() throws InterruptedException {
-        Thread.sleep(4000);
 
-        ((JavascriptExecutor) driver).executeScript("document.querySelector(\"#root > div.c-app.c-default-layout > div.c-wrapper > div > main > div > div > div > div > div.sc-aXZVg.dKvPpX > div > div.table-responsive\").scrollTop=300");
+        WebElement table = driver.findElement(By.xpath("//body/div[@id='root']/div[2]/div[2]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]"));
+
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollTop += 250", table);
+Thread.sleep(2000);
+        // Scroll up inside the table
+        js.executeScript("arguments[0].scrollTop -= 250", table);
+
+//        Thread.sleep(4000);
+//
+//        ((JavascriptExecutor) driver).executeScript("document.querySelector(\"#root > div.c-app.c-default-layout > div.c-wrapper > div > main > div > div > div > div > div.sc-aXZVg.dKvPpX > div > div.table-responsive\").scrollTop=300");
 
 
     }
 
     public void VerifyTherapistListScrollHorizantal() throws InterruptedException {
-        Thread.sleep(4000);
 
-        ((JavascriptExecutor) driver).executeScript("document.querySelector(\"#root > div.c-app.c-default-layout > div.c-wrapper > div > main > div > div > div > div > div.sc-aXZVg.dKvPpX > div > div.table-responsive\").scrollLeft=300");
+        WebElement table = driver.findElement(By.xpath("//body/div[@id='root']/div[2]/div[2]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]"));
+
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollLeft += 250", table);
+        Thread.sleep(2000);
+        // Scroll up inside the table
+        js.executeScript("arguments[0].scrollLeft -= 250", table);
+        //        Thread.sleep(4000);
+//
+//        ((JavascriptExecutor) driver).executeScript("document.querySelector(\"#root > div.c-app.c-default-layout > div.c-wrapper > div > main > div > div > div > div > div.sc-aXZVg.dKvPpX > div > div.table-responsive\").scrollLeft=300");
 
 
     }

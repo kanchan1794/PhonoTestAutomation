@@ -6,9 +6,6 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pageobjectclasses.PHBrowserConfig;
 import pageobjectclasses.PHLogsMenuPage;
-import pageobjectclasses.PHScreeningTestMenuPage;
-
-import java.awt.*;
 
 public class PHLogMenu extends PHBrowserConfig {
 

@@ -168,7 +168,9 @@ public class PHClientMenuPage extends PHBrowserConfig {
         System.out.println("View button display status :-" + driver.findElement(By.xpath("//button[contains(text(),'View')]")).isDisplayed());
         WebElement EnterLocation = driver.findElement(By.xpath("//input[@placeholder='Enter location']"));
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", EnterLocation);
-EnterLocation.sendKeys("Mumbai");
+EnterLocation.clear();
+
+        EnterLocation.sendKeys("Mumbai");
 //        String valueToSend = "Pune";
 //
 //        // Use JavaScript Executor to send the value to the input field
@@ -305,6 +307,10 @@ EnterLocation.sendKeys("Mumbai");
         ((JavascriptExecutor) driver).executeScript("window.scrollTo(0,document.body.scrollHeight)");
         driver.findElement(By.xpath("//button[contains(text(),'Previous')]"));
         ((JavascriptExecutor) driver).executeScript("window.scrollTo(document.body.scrollHeight, 0)");
+
+   driver.navigate().back();
+   Thread.sleep(2000);
+   driver.navigate().back();
     }
 
     }

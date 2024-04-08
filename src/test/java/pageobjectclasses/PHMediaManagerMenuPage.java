@@ -71,18 +71,16 @@ Thread.sleep(3000);
 
 
     public void SearchMedia() throws InterruptedException {
-        WebElement SearchMedia = driver.findElement(By.xpath("//body/div[@id='root']/div[2]/div[2]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/*[1]"));
-        //EditSpec.click();
-        //EditSpec.sendKeys("Unclear Speech");
 
+        WebElement SearchMedia = driver.findElement(By.xpath("//body/div[@id='root']/div[2]/div[2]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/*[1]"));
         Actions actions = new Actions(driver);
         actions.moveToElement(SearchMedia);
         actions.click();
         actions.sendKeys("vehicles");
         actions.sendKeys(Keys.RETURN);
         actions.build().perform();
-        System.out.println(SearchMedia.getText());
-        Thread.sleep(5000);
+        //System.out.println(SearchMedia.getText());
+        Thread.sleep(2000);
         String s = Keys.chord(Keys.CONTROL, "a");
         SearchMedia.sendKeys(s);
         // sending DELETE key
@@ -93,31 +91,31 @@ Thread.sleep(3000);
 
 
     public void SearchDetails() throws InterruptedException {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//body/div[@id='root']/div[2]/div[2]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/input[1]")));
+//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+//        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//body/div[@id='root']/div[2]/div[2]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/input[1]")));
+        Thread.sleep(2000);
         WebElement Searchdetails = driver.findElement(By.xpath("//body/div[@id='root']/div[2]/div[2]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/input[1]"));
-        Searchdetails.sendKeys("kids");
-        Thread.sleep(3000);
+        Actions actions= new Actions(driver);
+        actions.moveToElement(Searchdetails).click().sendKeys("kids").sendKeys(Keys.ENTER).perform();
+
+
+        //Searchdetails.sendKeys("kids");
+        Thread.sleep(2000);
         WebElement SearchSubmit = driver.findElement(By.xpath("//button[contains(text(),'Search')]"));
         SearchSubmit.click();
-        Thread.sleep(3000);
-        SearchSubmit.click();
-        Thread.sleep(3000);
+        Thread.sleep(2000);
+        //SearchSubmit.click();
+        //Thread.sleep(3000);
         // sending Ctrl+a by Keys.Chord()
         String s = Keys.chord(Keys.CONTROL, "a");
         Searchdetails.sendKeys(s);
         // sending DELETE key
         Searchdetails.sendKeys(Keys.DELETE);
-
-
-
-
-
     }
 
 
     public void AddmediaFile() throws InterruptedException, AWTException {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[contains(text(),'Add Media File')]")));
         WebElement AddMediaButton = driver.findElement(By.xpath("//button[contains(text(),'Add Media File')]"));
         AddMediaButton.click();
@@ -159,40 +157,14 @@ Browsefile.click();
         rb.keyRelease(KeyEvent.VK_ENTER);
         ((JavascriptExecutor) driver).executeScript("window.scrollTo(0,document.body.scrollHeight)");
 
-
-        //        String filePath = "C:\\Users\\prana\\Desktop\\Intellij Projects\\PhonoLogixAutomation\\src\\test\\java\\File\\fruits.jpg";
-//Browsefile.click();
-//        Browsefile.sendKeys(filePath);
-//        //        File file = new File(filePath);
-////        String absoluteFilePath = file.getAbsolutePath();
-////        Browsefile.click();
-//        //Browsefile.sendKeys(absoluteFilePath);
-//        ((JavascriptExecutor) driver).executeScript("window.scrollTo(0,document.body.scrollHeight)");
-
         Thread.sleep(4000);
 
 
+        ((JavascriptExecutor) driver).executeScript("window.scrollTo(0,document.body.scrollHeight)");
         WebElement ClickSubmit = driver.findElement(By.xpath("//button[contains(text(),'Submit')]"));
        // ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", ClickSubmit);
         ClickSubmit.click();
 
-
-
-
-
-//------ WITH THE HELP OF SENDKEYS FILE UPLOAD
-//        //WebDriverWait wait2 = new WebDriverWait(driver, Duration.ofSeconds(20)); // 10 seconds timeout
-//        //wait2.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(text(),'Browse')]")));
-//
-//        WebElement BrowseFile = driver.findElement(By.xpath("//div[contains(text(),'Browse')]")); // Replace with the actual ID or other locator of your file input
-//
-//        Actions actions = new Actions(driver);
-//        actions.moveToElement(BrowseFile).perform();
-        // Provide the file path to the input element using sendKeys
-      //  BrowseFile.sendKeys("C:\\Users\\prana\\Desktop\\Intellij Projects\\PhonoLogixAutomation\\src\\test\\java\\File\\fruits.jpg");
-      //  BrowseFile.sendKeys(filePath);
-        // element.click();
-        //FileUpload.sendKeys("C:\\Users\\prana\\Desktop\\Intellij Projects\\PhonoLogixAutomation\\src\\test\\java\\File\\fruits.jpg");
     }
     public void MediaManagerNextButton() throws InterruptedException {
         Thread.sleep(2000);
@@ -200,7 +172,7 @@ Browsefile.click();
         ((JavascriptExecutor) driver).executeScript("window.scrollTo(0,document.body.scrollHeight)");
         WebElement NextButton=driver.findElement(By.xpath("//button[contains(text(),'Next')]"));
         Actions action = new Actions(driver);
-                action.moveToElement(NextButton).click().perform();
+        action.moveToElement(NextButton).click().perform();
         Thread.sleep(2000);
         ((JavascriptExecutor) driver).executeScript("window.scrollTo(document.body.scrollHeight, 0)");
 
@@ -209,19 +181,35 @@ Browsefile.click();
     public void MediaManagerPreviousButton() throws InterruptedException {
         Thread.sleep(2000);
         ((JavascriptExecutor) driver).executeScript("window.scrollTo(0,document.body.scrollHeight)");
-        WebElement NextButton=driver.findElement(By.xpath("//button[contains(text(),'Previous')]"));
+        WebElement PreviousButton=driver.findElement(By.xpath("//button[contains(text(),'Previous')]"));
         Actions action = new Actions(driver);
-        action.moveToElement(NextButton).click().perform();
-        Thread.sleep(2000);
-        ((JavascriptExecutor) driver).executeScript("window.scrollTo(document.body.scrollHeight, 0)");
+        action.moveToElement(PreviousButton).click().perform();
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+
+        // Scroll up by a certain amount in each iteration of the loop
+        for (int i = 0; i < 10; i++) { // Adjust the loop condition as needed
+            // Execute JavaScript to scroll up
+            js.executeScript("window.scrollBy(0, -250);"); // Adjust the scroll amount as needed
+            // Add a delay to give time for the page to scroll
+            try {
+                Thread.sleep(500); // Adjust the delay time as needed
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+//        Thread.sleep(2000);
+//        ((JavascriptExecutor) driver).executeScript("window.scrollTo(document.body.scrollHeight, 0)");
 
     }
+        }
     public void HandleMedia() throws InterruptedException {
+        Thread.sleep(2000);
         ((JavascriptExecutor) driver).executeScript("window.scrollTo(document.body.scrollHeight, 0)");
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//body/div[@id='root']/div[2]/div[2]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/*[1]")));
         WebElement ClickPreviewIcon = driver.findElement(By.xpath("//body/div[@id='root']/div[2]/div[2]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/*[1]"));
-        ClickPreviewIcon.click();
+       // ((JavascriptExecutor) driver).executeScript("arguments[0].click();", ClickPreviewIcon);
+        Actions actions = new Actions(driver);
+
+        // Perform click action
+        actions.click(ClickPreviewIcon).perform();
         driver.findElement(By.xpath("//button[contains(text(),'View in Full Screen')]")).click();
         Thread.sleep(3000);
         driver.findElement(By.xpath("//button[contains(text(),'Close')]")).click();
@@ -232,7 +220,7 @@ Browsefile.click();
         WebElement ClickEditIcon = driver.findElement(By.xpath("//body/div[@id='root']/div[2]/div[2]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/*[1]"));
         ClickEditIcon.click();
 
-        WebElement EnterTitle = driver.findElement(By.xpath("//input[@placeholder='Enter title here']"));
+        WebElement EnterTitle = driver.findElement(By.xpath("//input[@placeholder='Enter title here' and @value='Fruits Media']"));
         EnterTitle.clear();
         EnterTitle.sendKeys("Fruits Image");
         Thread.sleep(3000);

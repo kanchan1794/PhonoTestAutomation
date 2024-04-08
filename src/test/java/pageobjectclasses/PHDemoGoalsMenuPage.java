@@ -1,14 +1,12 @@
 package pageobjectclasses;
 
-import junit.framework.Assert;
+import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.interactions.WheelInput;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.awt.*;
 import java.time.Duration;
 
 public class PHDemoGoalsMenuPage extends PHBrowserConfig {
@@ -22,58 +20,96 @@ public class PHDemoGoalsMenuPage extends PHBrowserConfig {
     public void ClickDemoGoalsMenu() throws InterruptedException {
         Thread.sleep(2000);
 
-        WebElement DemoGoalsScroll = driver.findElement(By.xpath("//body/div[@id='root']/div[2]/div[1]/ul[1]/div[2]"));
-        DemoGoalsScroll.click();
+//        WebElement DemoGoalsScroll = driver.findElement(By.xpath("//body/div[@id='root']/div[2]/div[1]/ul[1]/div[2]"));
+//        DemoGoalsScroll.click();
         WebElement DemoGoalsMenu_Link = driver.findElement(By.xpath("//a[@href='/demogoals/add']"));
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", DemoGoalsMenu_Link);
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@href='/demogoals/add']")));
         ((JavascriptExecutor) driver).executeScript("arguments[0].click();", DemoGoalsMenu_Link);
-        Thread.sleep(3000);
-        JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
-        jsExecutor.executeScript("window.scrollTo(0, document.body.scrollHeight/2);");
 
-        Thread.sleep(2000);
-        ((JavascriptExecutor) driver).executeScript("window.scrollTo(0,document.body.scrollHeight)");
-        Thread.sleep(2000);
-        ((JavascriptExecutor) driver).executeScript("window.scrollTo(document.body.scrollHeight, 0)");
-        Thread.sleep(2000);
-        ((JavascriptExecutor) driver).executeScript("window.scrollTo(document.body.scrollHeight, 0)");
+
+//
+//
+//        Thread.sleep(3000);
+//        JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+//        jsExecutor.executeScript("window.scrollTo(0, document.body.scrollHeight/2);");
+//
+//        Thread.sleep(2000);
+//        ((JavascriptExecutor) driver).executeScript("window.scrollTo(0,document.body.scrollHeight)");
+//        Thread.sleep(2000);
+//        ((JavascriptExecutor) driver).executeScript("window.scrollTo(document.body.scrollHeight, 0)");
+//        Thread.sleep(2000);
+//        ((JavascriptExecutor) driver).executeScript("window.scrollTo(document.body.scrollHeight, 0)");
     }
-    public void SearchDemoGoalsRecord() throws InterruptedException {
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='filter-input-focus']")));
-        WebElement Search_DemoGoalsRecord = driver.findElement(By.xpath("//input[@id='filter-input-focus']"));
-//Search_BankTransferApprovalRecord.sendKeys("Sandeep");
-        Thread.sleep(2000);
-        Search_DemoGoalsRecord.sendKeys("Eye-contact");
-        Thread.sleep(2000);
-        ((JavascriptExecutor) driver).executeScript("window.scrollTo(0,document.body.scrollHeight)");
-        Thread.sleep(2000);
-        ((JavascriptExecutor) driver).executeScript("window.scrollTo(document.body.scrollHeight, 0)");
-        // sending Ctrl+a by Keys.Chord()
-        String s = Keys.chord(Keys.CONTROL, "a");
-        Search_DemoGoalsRecord.sendKeys(s);
-        // sending DELETE key
-        Thread.sleep(2000);
-        Search_DemoGoalsRecord.sendKeys(Keys.DELETE);
-        Thread.sleep(2000);
-
-    }
     public void ValidateDemoGoalspage() throws InterruptedException {
-        Thread.sleep(4000);
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.xpath("//h3[contains(text(),'Screening Tests')]")));//h3[contains(text(),'Therapists')]);
-        Assert.assertTrue(driver.findElement(By.xpath("//h3[contains(text(),'Screening Tests')]")).isDisplayed());
+       Thread.sleep(4000);
 
-        System.out.println("**********" + driver.findElement(By.xpath("//h3[contains(text(),'Screening Tests')]")).isDisplayed() + "**********");
+        Assert.assertTrue(this.driver.findElement(By.xpath("//h3[contains(text(),'Demo Goals')]")).isDisplayed());
+        System.out.println("" + this.driver.findElement(By.xpath("//h3[contains(text(),'Demo Goals')] ")).isDisplayed() + "");
+        System.out.println("ADMIN IS ON DEMO GOAL PAGE ");
 
-       Thread.sleep(2000);
-        driver.findElement(By.xpath("//a[contains(text(),'1')]")).click();
-        ((JavascriptExecutor) driver).executeScript("window.scrollTo(document.body.scrollHeight, 0)");
+//        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.xpath("//h3[contains(text(),'Screening Tests')]")));//h3[contains(text(),'Therapists')]);
+//        Assert.assertTrue(driver.findElement(By.xpath("//h3[contains(text(),'Screening Tests')]")).isDisplayed());
+//
+//        System.out.println("**********" + driver.findElement(By.xpath("//h3[contains(text(),'Screening Tests')]")).isDisplayed() + "**********");
+
+//       Thread.sleep(2000);
+//        driver.findElement(By.xpath("//a[contains(text(),'1')]")).click();
+//        ((JavascriptExecutor) driver).executeScript("window.scrollTo(document.body.scrollHeight, 0)");
     }
 
 
+    public void ADD_demogaols() throws InterruptedException {
+
+        driver.findElement(By.xpath("//button[contains(text(),'Add')]")).click();
+
+
+    }
+
+
+    public void admin_can_fill_details()throws InterruptedException{
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(@class,'modal-body')]//div[contains(@class,'')]//div[1]//div[1]//div[1]//div[1]//select[1]")));
+        WebElement Category_drp = driver.findElement(By.xpath("//div[contains(@class,'modal-body')]//div[contains(@class,'')]//div[1]//div[1]//div[1]//div[1]//select[1]"));
+        Category_drp.click();
+        Select Category = new Select(Category_drp);
+        Category.selectByValue("Pre- Linguistic Categories");
+
+        //Thread.sleep(2000);
+
+        WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(20));
+        wait1.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//body/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/select[1]")));
+        WebElement SubCategory_drp = driver.findElement(By.xpath("//body/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/select[1]"));
+        SubCategory_drp.click();
+        Select SubCategory = new Select(SubCategory_drp);
+        SubCategory.selectByValue("Eye-contact");
+
+        Thread.sleep(2000);
+
+        WebDriverWait Wait2 =new WebDriverWait(driver,Duration.ofSeconds(30));
+        Wait2.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//body/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/select[1]")));
+        WebElement PleaseSelect_drp = driver.findElement(By.xpath("//body/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/select[1]"));
+        PleaseSelect_drp.click();
+        Select Please = new Select(PleaseSelect_drp);
+        Please.selectByIndex(1);
+
+        Thread.sleep(2000);
+
+        driver.findElement(By.xpath("//button[contains(text(),'Ok')]")).click();
+
+//        JavascriptExecutor js = (JavascriptExecutor) driver;
+//
+//        WebDriverWait wait2 = new WebDriverWait(driver, Duration.ofSeconds(30));
+//        Select Please = new Select(driver.findElement(By.xpath("//option[contains(text(),'Test meraj - MEraj test')]")));
+//        js.executeScript("arguments[0].scrollIntoView();", driver.findElement(By.xpath("//option[contains(text(),'Test meraj - MEraj test')]")));
+//        Please.selectByValue("Test meraj-MEraj test");
+
+
+
+
+    }
     public void SelectCategoryAndSubCategory() throws InterruptedException {
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
@@ -84,60 +120,60 @@ public class PHDemoGoalsMenuPage extends PHBrowserConfig {
         Category.selectByValue("Pre- Linguistic Categories");
 
         WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(20));
-        wait1.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"demoGam\"]/div/div/div[1]/div[2]/div/div/div/select")));
-        WebElement SubCategory_dropdown = driver.findElement(By.xpath("//*[@id=\"demoGam\"]/div/div/div[1]/div[2]/div/div/div/select"));
+        wait1.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='c-wrapper']//div[2]//div[1]//div[1]//div[1]//select[1]")));
+        WebElement SubCategory_dropdown = driver.findElement(By.xpath("//div[@class='c-wrapper']//div[2]//div[1]//div[1]//div[1]//select[1]"));
         SubCategory_dropdown.click();
         Select SubCategory = new Select(SubCategory_dropdown);
         SubCategory.selectByValue("Eye-contact");
 
-//        WebElement CategorySubmit = driver.findElement(By.xpath("//button[contains(text(),'Submit')]"));
-//        CategorySubmit.click();
-////        JavascriptExecutor js = (JavascriptExecutor) driver;
-////        js.executeScript("arguments[0].scrollIntoView({block: 'center', inline: 'nearest'});");
-//        WebElement ScrollCenter = driver.findElement(By.tagName("footer"));
-//        WheelInput.ScrollOrigin scrollOrigin = WheelInput.ScrollOrigin.fromElement(ScrollCenter, 0, -50);
-//        new Actions(driver)
-//                .scrollFromOrigin(scrollOrigin, 0, 200)
-//                .perform();
-//        //SCROLL TO TOP OF THE PAGE
-        Thread.sleep(2000);
-
-        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.xpath("//h3[contains(text(),'Demo Goals')]")));
-
-        // ((JavascriptExecutor) driver).executeScript("window.scrollTo(document.body.scrollHeight, 0)");
-        Category.selectByValue("All");
-        Thread.sleep(2000);
-        ((JavascriptExecutor) driver).executeScript("window.scrollTo(0,document.body.scrollHeight)");
-
-        //SubCategory.selectByValue("All");
-        //Thread.sleep(2000);
-       // CategorySubmit.click();
-
-        Thread.sleep(2000);
-
-        ((JavascriptExecutor) driver).executeScript("window.scrollTo(document.body.scrollHeight, 0)");
 
     }
-    public void DeletDemoGoals()
-    {
-        WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(20));
-        wait.until((ExpectedConditions.visibilityOfElementLocated(By.xpath("//tbody/tr[1]/td[5]/div[1]/button[1]"))));
-        WebElement DeleteDemoGoals= driver.findElement(By.xpath("//tbody/tr[1]/td[5]/div[1]/button[1]"));
-        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true);", DeleteDemoGoals);
-        ((JavascriptExecutor)driver).executeScript("arguments[0].click();", DeleteDemoGoals);
+
+    public void Admin_enter_search_keyword() throws InterruptedException{
+
+        driver.findElement(By.id("filter-input-focus")).sendKeys("Multiple Goals Testing - Multiple Goals Testing");
+
+        Actions actions = new Actions(driver);
+
+        actions.click(driver.findElement(By.id("filter-input-focus")))
+                .keyDown(Keys.CONTROL)
+                .sendKeys("a")
+                .keyUp(Keys.CONTROL)
+                .sendKeys(Keys.BACK_SPACE)
+                .build()
+                .perform();
     }
 
-//    public void ValidateScreeningTestpagenavigation() throws InterruptedException {
-//        Thread.sleep(4000);
-//        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.xpath("//h3[contains(text(),'Screening Tests')]")));//h3[contains(text(),'Therapists')]);
-//        Assert.assertTrue(driver.findElement(By.xpath("//h3[contains(text(),'Screening Tests')]")).isDisplayed());
+    public void relevant_search_is_generated(){
+        Assert.assertTrue(driver.findElement(By.xpath("//span[contains(text(),'Search:')]")).isDisplayed());
+       System.out.println(driver.findElement(By.xpath("//span[contains(text(),'Search:')]")).isDisplayed());
+       System.out.println("ADMIN CAN SEE SEARCH RECORD ");
+
+    }
+
+     public void DeletDemoGoals()throws InterruptedException{
+
+        driver.findElement(By.xpath("//tbody/tr[1]/td[5]/div[1]/button[1]")).click();
+
+          Thread.sleep(2000);
+
+//         // code for scroll bar inside the window
+//         WebElement Scroll = driver.findElement(By.xpath("//div[@class='table-responsive']"));
+//         JavascriptExecutor js = (JavascriptExecutor) driver;
+//         js.executeScript("arguments[0].scrollTop = 500;", Scroll);
 //
-//        System.out.println("**********" + driver.findElement(By.xpath("//h3[contains(text(),'Screening Tests')]")).isDisplayed() + "**********");
+//         Thread.sleep(2000);
 //
-//       Thread.sleep(2000);
-//        driver.findElement(By.xpath("//a[contains(text(),'1')]")).click();
-//        ((JavascriptExecutor) driver).executeScript("window.scrollTo(document.body.scrollHeight, 0)");
-//    }
+//
+//         // code for scroll bar for entire web page
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+
+         // Scroll down vertically by 500 pixels
+         js.executeScript("window.scrollBy(0, 500)");
+
+     }
+
+
 }
 
 
